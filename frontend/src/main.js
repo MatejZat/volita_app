@@ -1,4 +1,7 @@
-//VUE
+// CSS
+import './assets/sass/app.scss';
+
+// VUE
 import { createApp } from 'vue'
 
 // APP.VUE

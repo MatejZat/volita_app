@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@400;600&family=Nunito:wght@800&display=swap');
+
+body {
+  font-family: 'Hind Madurai', sans-serif;
+  font-size: rem(14);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: $fontBig;
+}
+
+h3 {
+  font-size: $fontMedium;
+}
+
+h4 {
+  font-size: $fontSmall;
+}
+
+h5 {
+  font-size: $fontLittle;
+}

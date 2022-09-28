@@ -1,0 +1,12 @@
+// Breakpoints
+@mixin breakpointUp($breakpoint) {
+  @media only screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin breakpointDown($breakpoint) {
+  @media only screen and (max-width: $breakpoint) {
+    @content;
+  }
+}

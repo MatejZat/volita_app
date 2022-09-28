@@ -1,0 +1,30 @@
+// Colors
+$primary: #46AEF7;
+$primaryContrast: #DEEDF8;
+
+$white: #FFFFFF;
+$whiteDarker: #F3F4F6;
+
+$dark: #061833;
+$darkLighter: #0C1F3D;
+
+$error: #F74646;
+$alert: #F7B046;
+$lowContrast: #AEBEC9;
+
+// Breakpoints
+$xs: 368px;
+$sm: 576px;
+$md: 768px;
+$lg: 1024px;
+$xl: 1200px;
+
+// Font sizes
+$fontBig: var(--font-big);
+$fontMedium: var(--font-medium);
+$fontSmall: var(--font-small);
+$fontLittle: var(--font-little);
+
+$font12: rem(12);
+$font10: rem(10);
+$font8: rem(8);
