@@ -48,7 +48,7 @@ typings/
 *.tsbuildinfo
 
 # Package-lock.json
-*.package-lock.json
+frontend/package-lock.json
 
 # Optional npm cache directory
 .npm
