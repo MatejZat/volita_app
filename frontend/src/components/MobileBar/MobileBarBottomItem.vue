@@ -1,7 +1,7 @@
 <template>
   <router-link to="/" class="mobile-bottom-bar-item" :class="{'mobile-bottom-bar-item-active': isActive, 'mobile-bottom-bar-item-expand': isExpanded}">
     <figure class="icon-wrapper">
-      <img :src="iconPath" alt="Home icon">
+      <VueFeather :type="icon" />
     </figure>
 
     <h6>{{ title }}</h6>
@@ -15,12 +15,6 @@ export default {
     isExpanded: Boolean,
     icon: String,
     title: String
-  },
-
-  computed: {
-    iconPath() {
-      return require(`@/assets/img/icons/${this.icon}`)
-    }
   },
 }
 </script>
@@ -39,6 +33,7 @@ export default {
     .icon-wrapper {
       padding: rem(10);
       border-radius: 100%;
+      color: $white;
       background: $primary;
     }
   }
@@ -53,12 +48,6 @@ export default {
 
   .icon-wrapper {
     margin-bottom: rem(4);
-
-    @include breakpointUp($md) {
-      img {
-        width: 32px;
-      }
-    }
   }
 }
 </style>

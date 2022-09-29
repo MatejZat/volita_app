@@ -1,11 +1,11 @@
 <template>
   <footer class="bottom-bar">
     <div class="bottom-bar-content">
-      <MobileBarBottomItem :isActive="true" icon="home.svg" title="Domov" />
-      <MobileBarBottomItem icon="home.svg" title="Domov" />
-      <MobileBarBottomItem :isExpanded="true" icon="home.svg" title="Domov" />
-      <MobileBarBottomItem icon="home.svg" title="Domov" />
-      <MobileBarBottomItem icon="home.svg" title="Domov" />
+      <MobileBarBottomItem isActive icon="home" title="Domov" />
+      <MobileBarBottomItem icon="home" title="Domov" />
+      <MobileBarBottomItem isExpanded icon="home" title="Domov" />
+      <MobileBarBottomItem icon="home" title="Domov" />
+      <MobileBarBottomItem icon="home" title="Domov" />
     </div>
 
     <MobileBarBottomItemWave />
@@ -33,6 +33,7 @@ export default {
   border-top-left-radius: 18px;
   border-top-right-radius: 18px;
   backdrop-filter: blur(8px);
+  z-index: 1000;
   background: rgba($white, 0.6);
 
   .bottom-bar-content {

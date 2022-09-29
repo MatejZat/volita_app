@@ -26,6 +26,7 @@ export default {
 
   mounted() {
     window.addEventListener('resize', this.switchLayout)
+    this.switchLayout()
   },
 
   methods: {
