@@ -1,5 +1,5 @@
 <template>
-  <nav class="menu" :style="{ height: innerHeight }">
+  <nav class="menu">
     <MobileBarMenuUser />
 
     <MobileBarMenuNav>
@@ -27,21 +27,19 @@ export default {
     MobileBarMenuNavItem,
     MobileBarMenuMetas
   },
-
-  computed: {
-    innerHeight() {
-      return window.innerHeight + 'px';
-    }
-  },
 }
 </script>
 
 <style lang="scss" scoped>
 .menu {
   padding: rem(20);
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: absolute;
+  top: 0;
+  left: 0;
   color: $white;
 
   @include breakpointUp($md) {

@@ -46,6 +46,7 @@ export default {
 
 <style lang="scss" scoped>
 .menu-wrapper {
+  height: 100vh;
   display: flex;
   position: relative;
   overflow: hidden;
