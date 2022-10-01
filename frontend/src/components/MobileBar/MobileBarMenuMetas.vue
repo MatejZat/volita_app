@@ -1,21 +1,21 @@
 <template>
-  <footer>
-    <MobileBarMenuNav vertical>
-      <MobileBarMenuNavItem icon="bell" title="Hlásenia" href="/" small />
-      <MobileBarMenuNavItem icon="settings" title="Nastavenia" href="/" small />
-      <MobileBarMenuNavItem icon="log-out" title="Odhlásiť sa" href="/" small />
-    </MobileBarMenuNav>
-  </footer>
+    <footer>
+        <MenuNav vertical>
+            <MenuNavItem icon="bell" title="Hlásenia" routeName="Dashboard" small />
+            <MenuNavItem icon="settings" title="Nastavenia" routeName="Dashboard" small />
+            <MenuNavItem icon="log-out" title="Odhlásiť sa" routeName="Dashboard" small />
+        </MenuNav>
+    </footer>
 </template>
 
 <script>
-import MobileBarMenuNav from "@/components/MobileBar/MobileBarMenuNav";
-import MobileBarMenuNavItem from "@/components/MobileBar/MobileBarMenuNavItem";
+import MenuNav from "@/components/MenuNav/MenuNav";
+import MenuNavItem from "@/components/MenuNav/MenuNavItem";
 
 export default {
   components: {
-    MobileBarMenuNav,
-    MobileBarMenuNavItem
+    MenuNav,
+    MenuNavItem
   },
 }
 </script>

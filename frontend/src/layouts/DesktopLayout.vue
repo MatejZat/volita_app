@@ -1,12 +1,10 @@
 <template>
-  <h1>DESKTtop</h1>
-  <slot />
+    <h1>DESKTtop</h1>
+    <slot/>
 </template>
 
 <script>
-export default {
-
-}
+export default {}
 </script>
 
 <style scoped>

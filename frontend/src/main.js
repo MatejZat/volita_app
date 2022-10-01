@@ -1,34 +1,27 @@
 // CSS
-import './assets/sass/app.scss';
-
+import "./assets/sass/app.scss";
 
 // ICONS
-import VueFeather from 'vue-feather'
-
+import VueFeather from "vue-feather";
 
 // VUE
-import { createApp } from 'vue'
-
+import { createApp } from "vue";
 
 // APP.VUE
-import App from './App.vue'
-
+import App from "./App.vue";
 
 // SERVICE WORKER
-import './registerServiceWorker'
-
+import "./registerServiceWorker";
 
 // ROUTER
-import router from './router'
-
+import router from "./router";
 
 // STORE
-import store from './store'
-
+import store from "./store";
 
 // CREATE APP
 createApp(App)
     .component(VueFeather.name, VueFeather)
     .use(store)
     .use(router)
-    .mount('#app')
+    .mount("#app");
