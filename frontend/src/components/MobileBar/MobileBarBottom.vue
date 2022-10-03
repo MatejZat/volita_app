@@ -4,7 +4,7 @@
             <MobileBarBottomItem icon="home" title="Domov" href="Dashboard"/>
             <MobileBarBottomItem icon="calendar" title="Kalendár" href="Calendar"/>
             <MobileBarBottomItem isExpanded icon="plus" title="Domov" href="Calendar"/>
-            <MobileBarBottomItem icon="home" title="Domov" href="Calendar"/>
+            <MobileBarBottomItem icon="home" title="Domov" href="Login"/>
             <MobileBarBottomItem icon="home" title="Domov" href="Dashboard"/>
         </div>
 

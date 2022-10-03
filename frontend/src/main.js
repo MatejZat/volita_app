@@ -1,6 +1,3 @@
-// CSS
-import "./assets/sass/app.scss";
-
 // ICONS
 import VueFeather from "vue-feather";
 

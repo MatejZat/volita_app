@@ -1,58 +1,20 @@
 <template>
-    <MobileLayout v-if="isMobile">
-        <RouterView v-slot="{ Component }">
-            <transition name="page-transition" mode="out-in">
-                <component :is="Component"/>
-            </transition>
-        </RouterView>
-    </MobileLayout>
-
-    <DesktopLayout v-else>
-        <RouterView/>
-    </DesktopLayout>
+  <component v-bind:is="layout"></component>
 </template>
 
 <script>
-import MobileLayout from "@/layouts/MobileLayout";
-import DesktopLayout from "@/layouts/DesktopLayout";
+  import AuthLayout from "@/layouts/auth/AuthLayout";
+  import AppLayout from "@/layouts/app/AppLayout";
 
 export default {
-    components: {
-        MobileLayout,
-        DesktopLayout
-    },
-
-    data() {
-        return {
-            isMobile: true
-        }
-    },
-
-    mounted() {
-        this.switchLayout();
-    },
-
-    methods: {
-        switchLayout() {
-            window.innerWidth < 1024 ? this.isMobile = true : this.isMobile = false;
-        }
-    },
+  components: {
+    auth: AuthLayout,
+    app: AppLayout
+  },
+  computed: {
+    layout() {
+      return this.$store.getters.layout;
+    }
+  },
 }
 </script>
-
-<style lang="scss" scoped>
-.page-transition-enter-from {
-    opacity: 0;
-    transform: translateX(80px);
-}
-
-.page-transition-enter-active,
-.page-transition-leave-active {
-    transition: all $pageTransitionSpeed;
-}
-
-.page-transition-leave-to {
-    opacity: 0;
-    transform: translateX(-80px);
-}
-</style>

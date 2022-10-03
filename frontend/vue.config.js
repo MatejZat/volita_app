@@ -3,9 +3,9 @@ module.exports = {
         loaderOptions: {
             sass: {
                 prependData: `
-                    @import "@/assets/sass/utils/_mixins.scss";
-                    @import "@/assets/sass/utils/_functions.scss";
-                    @import "@/assets/sass/utils/_variables.scss";
+                    @import "@/assets/sass/global/utils/_mixins.scss";
+                    @import "@/assets/sass/global/utils/_functions.scss";
+                    @import "@/assets/sass/global/utils/_variables.scss";
                 `
             }
         }
