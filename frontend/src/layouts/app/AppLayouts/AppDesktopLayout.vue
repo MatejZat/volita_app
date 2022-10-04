@@ -1,12 +1,35 @@
 <template>
-    <h1>DESKTtop</h1>
-    <slot/>
+  <DesktopBarTop />
+
+  <div class="content-wrapper">
+    <DesktopBarMenu />
+
+    <main>
+      <DesktopBarMetas />
+
+      <div class="container">
+        <slot/>
+      </div>
+    </main>
+  </div>
 </template>
 
 <script>
-export default {}
+  import DesktopBarTop from '@/components/DesktopBar/DesktopBarTop';
+  import DesktopBarMenu from '@/components/DesktopBar/DesktopBarMenu';
+  import DesktopBarMetas from '@/components/DesktopBar/DesktopBarMetas';
+
+  export default {
+    components: {
+      DesktopBarTop,
+      DesktopBarMenu,
+      DesktopBarMetas
+    },
+  }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+  .content-wrapper {
+    display: flex;
+  }
 </style>

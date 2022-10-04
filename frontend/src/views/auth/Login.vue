@@ -11,9 +11,7 @@
 </script>
 
 <style scoped lang="scss">
-
   section {
 
   }
-
 </style>

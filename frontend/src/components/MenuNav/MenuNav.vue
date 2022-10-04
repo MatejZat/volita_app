@@ -1,46 +1,35 @@
 <template>
-    <ul class="menu-nav" :class="{ 'menu-nav-vertical' : vertical }">
-        <slot />
-    </ul>
+  <ul class="menu-nav" :class="{ 'menu-nav-vertical' : vertical }">
+    <slot />
+  </ul>
 </template>
 
 <script>
-export default {
+  export default {
     props: {
-        vertical: Boolean,
-        spaceBetween: Number
+      vertical: Boolean,
+      spaceBetween: Number,
+      offset: Number
     },
-}
+  }
 </script>
 
 <style lang="scss">
-.menu-nav {
+  .menu-nav {
     display: flex;
     flex-direction: column;
 
-    > li {
-        margin-bottom: rem(20);
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-
-        @include breakpointUp($md) {
-            margin-bottom: rem(30);
-        }
+    > li:not(:last-child) {
+      margin-bottom: rem(26);
     }
 
     &-vertical {
-        flex-direction: row;
+      flex-direction: row;
 
-        > li {
-            margin-right: rem(20);
-            margin-bottom: rem(0);
-
-            &:last-child {
-                margin-right: 0;
-            }
-        }
+      > li:not(:last-child) {
+        margin-right: rem(20);
+        margin-bottom: 0;
+      }
     }
-}
+  }
 </style>

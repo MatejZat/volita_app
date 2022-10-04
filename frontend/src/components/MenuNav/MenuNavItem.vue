@@ -1,66 +1,120 @@
 <template>
-    <li class="nav-item" :class="{ 'text-small' : small }">
-        <figure v-if="icon" class="icon-wrapper">
-            <VueFeather :type="icon"/>
-        </figure>
+  <li class="nav-item" :class="{ 'text-small' : small }">
+    <a @click.prevent="handleClick" href="#" class="link-wrapper">
+      <figure class="icon-wrapper">
+          <component :is="icon" />
+      </figure>
 
-        <RouterLink :to="{ name: routeName}">{{ title }}</RouterLink>
-    </li>
+      <span class="font-nunito">{{ title }}</span>
+    </a>
+
+    <div v-show="isDropdownOpen">
+      <slot />
+    </div>
+  </li>
 </template>
 
 <script>
-export default {
+  // Icons
+  import IconHome from '@/components/Icons/IconHome';
+  import IconCalendar from '@/components/Icons/IconCalendar';
+  import IconBell from '@/components/Icons/IconBell';
+  import IconSettings from '@/components/Icons/IconSettings';
+  import IconLogout from '@/components/Icons/IconLogout';
+
+  export default {
     props: {
-        icon: String,
-        title: String,
-        routeName: String,
-        small: Boolean
+      title: String,
+      iconName: String,
+      routeName: String,
+      small: Boolean
     },
-}
+
+    components: {
+      IconHome,
+      IconCalendar,
+      IconBell,
+      IconSettings,
+      IconLogout
+    },
+
+    data() {
+      return {
+        isDropdownOpen: false
+      }
+    },
+
+    computed: {
+      icon() {
+        return 'Icon' + this.iconName;
+      },
+    },
+
+    methods: {
+      handleClick() {
+        if( this.routeName ) {
+          this.$store.commit('toggleMenuOpen');
+          return this.$router.push({ name: this.routeName });
+        } else {
+          this.toggleDropdown();
+        }
+      },
+
+      toggleDropdown() {
+        this.isDropdownOpen = !this.isDropdownOpen;
+      }
+    },
+  }
 </script>
 
-<style lang="scss" scoped>
-.nav-item {
-    display: flex;
-    align-items: center;
+<style lang="scss">
+  .nav-item {
+
+    .link-wrapper {
+      display: flex;
+      align-items: center;
+    }
 
     .icon-wrapper {
-        margin-right: rem(10);
+      margin-right: rem(10);
     }
 
-    i {
+    svg {
+      width: rem(26);
+
+      @include breakpointUp($md) {
+        width: rem(32);
+      }
+    }
+
+    a {
+      font-size: rem(20);
+
+      @include breakpointUp($md) {
+        font-size: rem(24);
+      }
+    }
+  }
+
+  .text-small {
+    .icon-wrapper {
+      margin-right: rem(6);
+    }
+
+    svg {
+      width: rem(16);
+
+      @include breakpointUp($md) {
         width: rem(20);
-
-        @include breakpointUp($md) {
-            width: rem(32);
-        }
+      }
     }
 
     a {
-        font-family: 'Nunito', sans-serif;
-        font-size: rem(20);
+      font-size: rem(10) !important;
 
-        @include breakpointUp($md) {
-            font-size: rem(24);
-        }
+      @include breakpointUp($md) {
+        font-size: rem(13) !important;
+      }
     }
-}
-
-.text-small {
-    i {
-        width: rem(14);
-
-        @include breakpointUp($md) {
-            width: rem(20);
-        }
-    }
-
-    a {
-        font-size: rem(10) !important;
-
-        @include breakpointUp($md) {
-            font-size: rem(13) !important;
-        }
-    }
-}
+  }
 </style>

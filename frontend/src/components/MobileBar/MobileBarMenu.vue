@@ -1,43 +1,60 @@
 <template>
-    <nav class="menu">
-        <MobileBarMenuUser/>
+  <transition name="menu-slide">
+    <nav class="menu-wrapper">
+      <MobileBarMenuUser />
 
-        <MenuNav>
-            <MenuNavItem icon="home" title="Domov" routeName="Dashboard" @click="closeMenu" />
-            <MenuNavItem icon="home" title="Domov" routeName="Calendar" @click="closeMenu" />
-            <MenuNavItem icon="home" title="Domov" routeName="Dashboard" @click="closeMenu" />
-            <MenuNavItem icon="home" title="Domov" routeName="Calendar" @click="closeMenu" />
-            <MenuNavItem icon="home" title="Domov" routeName="Dashboard" @click="closeMenu" />
-        </MenuNav>
+      <MenuNav>
+        <MenuNavItem title="Nástenka" iconName="Home"  routeName="Dashboard" />
+        <MenuNavItem title="Kalendár" iconName="Calendar"  routeName="Calendar" />
 
-        <MobileBarMenuMetas/>
+        <MenuNavItem title="Adresár" iconName="Home">
+          <MenuDropdown>
+            <MenuDropdownItem routeName="Dashboard">Klienti</MenuDropdownItem>
+            <MenuDropdownItem routeName="Calendar">Kontaktné osoby</MenuDropdownItem>
+            <MenuDropdownItem routeName="Dashboard">Lead</MenuDropdownItem>
+          </MenuDropdown>
+        </MenuNavItem>
+
+        <MenuNavItem title="Obchod" iconName="Calendar">
+          <MenuDropdown>
+            <MenuDropdownItem routeName="Calendar">Obchodná nástenka</MenuDropdownItem>
+            <MenuDropdownItem routeName="Dashboard">Obchodné prípady</MenuDropdownItem>
+            <MenuDropdownItem routeName="Calendar">Ponuky</MenuDropdownItem>
+            <MenuDropdownItem routeName="Dashboard">Objednávky</MenuDropdownItem>
+            <MenuDropdownItem routeName="Calendar">Projekty</MenuDropdownItem>
+            <MenuDropdownItem routeName="Dashboard">Produkty</MenuDropdownItem>
+            <MenuDropdownItem routeName="Calendar">Cenníky</MenuDropdownItem>
+          </MenuDropdown>
+        </MenuNavItem>
+      </MenuNav>
+
+      <MobileBarMenuMetas />
     </nav>
+  </transition>
 </template>
 
 <script>
-import MobileBarMenuUser from "@/components/MobileBar/MobileBarMenuUser";
-import MenuNav from "@/components/MenuNav/MenuNav";
-import MenuNavItem from "@/components/MenuNav/MenuNavItem";
-import MobileBarMenuMetas from "@/components/MobileBar/MobileBarMenuMetas";
+  import MobileBarMenuUser from '@/components/MobileBar/MobileBarMenuUser';
+  import MenuNav from '@/components/MenuNav/MenuNav';
+  import MenuNavItem from '@/components/MenuNav/MenuNavItem';
+  import MenuDropdown from '@/components/MenuNav/MenuDropdown';
+  import MenuDropdownItem from '@/components/MenuNav/MenuDropdownItem';
+  import MobileBarMenuMetas from '@/components/MobileBar/MobileBarMenuMetas';
 
-export default {
+  export default {
     components: {
-        MenuNavItem,
-        MobileBarMenuUser,
-        MenuNav,
-        MobileBarMenuMetas,
+      MobileBarMenuUser,
+      MenuNav,
+      MenuNavItem,
+      MenuDropdown,
+      MenuDropdownItem,
+      MobileBarMenuMetas
     },
-
-    methods: {
-        closeMenu() {
-            this.$emit('routeChange')
-        }
-    },
-};
+  };
 </script>
 
 <style lang="scss" scoped>
-.menu {
+  .menu-wrapper {
     padding: rem(20);
     height: 100%;
     display: flex;
@@ -49,7 +66,21 @@ export default {
     color: $white;
 
     @include breakpointUp($md) {
-        padding: rem(30);
+      padding: rem(30);
     }
-}
+  }
+
+  .menu-slide-enter-active,
+  .menu-slide-leave-active {
+    transition: transform $mobileBarSpeed;
+  }
+
+  .menu-slide-enter-from {
+    transform: translateX(-100%);
+  }
+
+  .menu-slide-leave-to {
+    position: absolute;
+    transform: translateX(-100%);
+  }
 </style>

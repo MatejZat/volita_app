@@ -8,14 +8,18 @@
   </MobileLayout>
 
   <DesktopLayout v-else>
-    <RouterView/>
+    <RouterView v-slot="{ Component }">
+      <transition name="page-transition" mode="out-in">
+        <component :is="Component"/>
+      </transition>
+    </RouterView>
   </DesktopLayout>
 </template>
 
 <script>
-  import "@/assets/sass/app/app.scss";
-  import MobileLayout from "@/layouts/app/AppLayouts/AppMobileLayout";
-  import DesktopLayout from "@/layouts/app/AppLayouts/AppDesktopLayout";
+  import '@/assets/sass/app/app.scss';
+  import MobileLayout from '@/layouts/app/AppLayouts/AppMobileLayout';
+  import DesktopLayout from '@/layouts/app/AppLayouts/AppDesktopLayout';
 
   export default {
     components: {
