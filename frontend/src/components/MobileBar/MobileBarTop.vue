@@ -3,14 +3,14 @@
     <div class="top-bar-content">
       <AppButton ripple>
         <a @click.prevent="goBack" href="#">
-          <IconChevLeft />
+          <AppIcon iconName="ChevLeft" />
         </a>
       </AppButton>
 
         <h3>Objednávky</h3>
 
         <AppButton @click="openMenu" ripple>
-          <IconMenu />
+          <AppIcon iconName="Menu" />
         </AppButton>
     </div>
   </header>
@@ -18,14 +18,12 @@
 
 <script>
   import AppButton from '@/components/AppButton';
-  import IconChevLeft from '@/components/Icons/IconChevLeft';
-  import IconMenu from '@/components/Icons/IconMenu';
+  import AppIcon from '@/components/AppIcon';
 
   export default {
     components: {
       AppButton,
-      IconChevLeft,
-      IconMenu
+      AppIcon
     },
 
     methods: {

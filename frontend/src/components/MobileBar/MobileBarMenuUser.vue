@@ -10,17 +10,17 @@
     </div>
 
     <div>
-      <IconChevRight />
+      <AppIcon iconName="ChevRight" />
     </div>
   </header>
 </template>
 
 <script>
-  import IconChevRight from '@/components/Icons/IconChevRight';
+  import AppIcon from '@/components/AppIcon';
 
   export default {
     components: {
-      IconChevRight,
+      AppIcon
     },
   }
 </script>

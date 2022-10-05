@@ -4,14 +4,14 @@
       <a @click.prevent="toggleDropdown" href="#" class="link-wrapper">
         <div class="link">
           <figure class="icon-wrapper">
-            <component :is="icon" />
+            <AppIcon :iconName="iconName" />
           </figure>
 
           <span class="font-nunito">{{ title }}</span>
         </div>
 
         <figure class="icon-dropdown">
-          <IconChevRight />
+          <AppIcon iconName="IconChevRight" />
         </figure>
       </a>
     </AppButton>
@@ -23,13 +23,8 @@
 </template>
 
 <script>
-  import AppButton from "@/components/AppButton";
-  import IconHome from '@/components/Icons/IconHome';
-  import IconCalendar from '@/components/Icons/IconCalendar';
-  import IconBell from '@/components/Icons/IconBell';
-  import IconSettings from '@/components/Icons/IconSettings';
-  import IconLogout from '@/components/Icons/IconLogout';
-  import IconChevRight from '@/components/Icons/IconChevRight';
+  import AppButton from '@/components/AppButton';
+  import AppIcon from '@/components/AppIcon';
 
   export default {
     props: {
@@ -41,18 +36,7 @@
 
     components: {
       AppButton,
-      IconHome,
-      IconCalendar,
-      IconBell,
-      IconSettings,
-      IconLogout,
-      IconChevRight
-    },
-
-    computed: {
-      icon() {
-        return 'Icon' + this.iconName;
-      },
+      AppIcon,
     },
 
     methods: {

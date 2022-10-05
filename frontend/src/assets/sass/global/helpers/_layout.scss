@@ -1,4 +1,8 @@
 .container {
   padding: rem(80) rem(20) rem(90) rem(20);
   width: 100%;
+
+  @include breakpointUp($lg) {
+    padding: rem(20);
+  }
 }
