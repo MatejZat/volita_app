@@ -31,6 +31,12 @@
     }
 
     .menu-nav-item {
+      max-width: 200px;
+
+      @include breakpointUp($md) {
+        max-width: none;
+      }
+
       .link-wrapper {
         display: inline-flex;
         align-items: center;
@@ -59,6 +65,7 @@
 
       &-dropdown {
         @extend .menu-nav-item;
+
         > .ripple-button {
           width: 100%;
         }
@@ -77,6 +84,10 @@
 
             svg {
               width: rem(18);
+
+              @include breakpointUp($md) {
+                width: rem(24);
+              }
             }
           }
         }
