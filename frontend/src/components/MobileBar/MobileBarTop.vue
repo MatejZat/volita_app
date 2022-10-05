@@ -30,7 +30,7 @@
 
     methods: {
       openMenu() {
-        this.$emit( 'menuIconClick' );
+        this.$emit('menuIconClick');
       },
 
       goBack() {

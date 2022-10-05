@@ -1,5 +1,5 @@
 <template>
-  <button v-if="ripple" @click="rippleEffect" ref="rippleButton" class="custom-button">
+  <button v-if="ripple" @click="rippleEffect" ref="rippleButton" class="ripple-button" :class="rippleEffectColor">
     <slot/>
   </button>
 
@@ -7,7 +7,7 @@
     <slot/>
   </button>
 
-  <RouterLink v-else :to="{ name: hrefName }" class="font-nunito" :class="[buttonType, buttonStretch]">
+  <RouterLink v-else :to="{ name: routeName }" class="font-nunito" :class="[buttonType, buttonStretch]">
     <slot/>
   </RouterLink>
 </template>
@@ -17,9 +17,9 @@ export default {
   props: {
     href: String,
     type: String,
-    rippleColor: String,
-    hrefName: String,
+    routeName: String,
     ripple: Boolean,
+    rippleWhite: Boolean,
     ghost: Boolean,
     stretch: Boolean,
     submit: Boolean
@@ -32,6 +32,10 @@ export default {
 
     buttonType() {
       return this.type + '-button' + this.isGhost;
+    },
+
+    rippleEffectColor() {
+      return this.rippleWhite ? 'ripple-color-white' : 'ripple-color-blue';
     },
 
     isGhost() {
@@ -62,7 +66,7 @@ export default {
 </script>
 
 <style lang="scss">
-  .custom-button {
+  .ripple-button {
     padding: rem(1);
     position: relative;
     display: block;
@@ -85,7 +89,6 @@ export default {
       left: 0;
       border-radius: 10px;
       transform: scale(0);
-      background: rgba($primary, 0.3);
 
       animation: ripple 500ms ease-out;
     }
@@ -96,6 +99,14 @@ export default {
         opacity: 0;
       }
     }
+  }
+
+  .ripple-color-white .ripple {
+    background: rgba($white, 0.3);
+  }
+
+  .ripple-color-blue .ripple {
+    background: rgba($primary, 0.3);
   }
 
   .button {

@@ -7,25 +7,21 @@
         <MenuNavItem title="Nástenka" iconName="Home"  routeName="Dashboard" />
         <MenuNavItem title="Kalendár" iconName="Calendar"  routeName="Calendar" />
 
-        <MenuNavItem title="Adresár" iconName="Home">
-          <MenuDropdown>
-            <MenuDropdownItem routeName="Dashboard">Klienti</MenuDropdownItem>
-            <MenuDropdownItem routeName="Calendar">Kontaktné osoby</MenuDropdownItem>
-            <MenuDropdownItem routeName="Dashboard">Lead</MenuDropdownItem>
-          </MenuDropdown>
-        </MenuNavItem>
+        <MenuNavItemDropdown v-slot="slotProps" title="Adresár" iconName="Home">
+          <DropdownItem @click="slotProps.closeDropdown" routeName="Dashboard">Klienti</DropdownItem>
+          <DropdownItem @click="slotProps.closeDropdown" routeName="Calendar">Kontaktné osoby</DropdownItem>
+          <DropdownItem @click="slotProps.closeDropdown" routeName="Dashboard">Lead</DropdownItem>
+        </MenuNavItemDropdown>
 
-        <MenuNavItem title="Obchod" iconName="Calendar">
-          <MenuDropdown>
-            <MenuDropdownItem routeName="Calendar">Obchodná nástenka</MenuDropdownItem>
-            <MenuDropdownItem routeName="Dashboard">Obchodné prípady</MenuDropdownItem>
-            <MenuDropdownItem routeName="Calendar">Ponuky</MenuDropdownItem>
-            <MenuDropdownItem routeName="Dashboard">Objednávky</MenuDropdownItem>
-            <MenuDropdownItem routeName="Calendar">Projekty</MenuDropdownItem>
-            <MenuDropdownItem routeName="Dashboard">Produkty</MenuDropdownItem>
-            <MenuDropdownItem routeName="Calendar">Cenníky</MenuDropdownItem>
-          </MenuDropdown>
-        </MenuNavItem>
+        <MenuNavItemDropdown v-slot="slotProps" title="Obchod" iconName="Calendar">
+          <DropdownItem @click="slotProps.closeDropdown" routeName="Calendar">Obchodná nástenka</DropdownItem>
+          <DropdownItem @click="slotProps.closeDropdown" routeName="Dashboard">Obchodné prípady</DropdownItem>
+          <DropdownItem @click="slotProps.closeDropdown" routeName="Calendar">Ponuky</DropdownItem>
+          <DropdownItem @click="slotProps.closeDropdown" routeName="Dashboard">Objednávky</DropdownItem>
+          <DropdownItem @click="slotProps.closeDropdown" routeName="Calendar">Projekty</DropdownItem>
+          <DropdownItem @click="slotProps.closeDropdown" routeName="Dashboard">Produkty</DropdownItem>
+          <DropdownItem @click="slotProps.closeDropdown" routeName="Calendar">Cenníky</DropdownItem>
+        </MenuNavItemDropdown>
       </MenuNav>
 
       <MobileBarMenuMetas />
@@ -37,8 +33,8 @@
   import MobileBarMenuUser from '@/components/MobileBar/MobileBarMenuUser';
   import MenuNav from '@/components/MenuNav/MenuNav';
   import MenuNavItem from '@/components/MenuNav/MenuNavItem';
-  import MenuDropdown from '@/components/MenuNav/MenuDropdown';
-  import MenuDropdownItem from '@/components/MenuNav/MenuDropdownItem';
+  import MenuNavItemDropdown from '@/components/MenuNav/MenuNavItemDropdown';
+  import DropdownItem from '@/components/MenuNav/DropdownItem';
   import MobileBarMenuMetas from '@/components/MobileBar/MobileBarMenuMetas';
 
   export default {
@@ -46,8 +42,8 @@
       MobileBarMenuUser,
       MenuNav,
       MenuNavItem,
-      MenuDropdown,
-      MenuDropdownItem,
+      MenuNavItemDropdown,
+      DropdownItem,
       MobileBarMenuMetas
     },
   };

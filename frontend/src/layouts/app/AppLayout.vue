@@ -1,19 +1,11 @@
 <template>
-  <MobileLayout v-if="isMobile">
+  <component :is="layout">
     <RouterView v-slot="{ Component }">
       <transition name="page-transition" mode="out-in">
         <component :is="Component"/>
       </transition>
     </RouterView>
-  </MobileLayout>
-
-  <DesktopLayout v-else>
-    <RouterView v-slot="{ Component }">
-      <transition name="page-transition" mode="out-in">
-        <component :is="Component"/>
-      </transition>
-    </RouterView>
-  </DesktopLayout>
+  </component>
 </template>
 
 <script>
@@ -29,7 +21,7 @@
 
     data() {
       return {
-        isMobile: true
+        layout: 'MobileLayout'
       }
     },
 
@@ -44,7 +36,7 @@
 
     methods: {
       switchLayout() {
-        window.innerWidth < 1024 ? this.isMobile = true : this.isMobile = false;
+        window.innerWidth < 1024 ? this.layout = 'MobileLayout' : this.layout = 'DesktopLayout';
       }
     },
   }
