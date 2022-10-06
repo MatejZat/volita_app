@@ -11,7 +11,7 @@
         </div>
 
         <figure class="icon-dropdown">
-          <AppIcon iconName="IconChevRight" />
+          <AppIcon iconName="ChevRight" />
         </figure>
       </a>
     </AppButton>

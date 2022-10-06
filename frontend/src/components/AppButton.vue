@@ -3,11 +3,11 @@
     <slot/>
   </button>
 
-  <button v-else-if="submit" class="font-nunito" :class="[buttonType, buttonStretch]" type="submit">
+  <button v-else-if="submit" class="font-nunito" :class="[buttonTypeClass, buttonStretchClass]" type="submit">
     <slot/>
   </button>
 
-  <RouterLink v-else :to="{ name: routeName }" class="font-nunito" :class="[buttonType, buttonStretch]">
+  <RouterLink v-else :to="{ name: routeName }" class="font-nunito" :class="[buttonTypeClass, buttonStretchClass]">
     <slot/>
   </RouterLink>
 </template>
@@ -26,11 +26,11 @@ export default {
   },
 
   computed: {
-    buttonStretch() {
+    buttonStretchClass() {
       return this.stretch ? 'button-stretch' : 'button';
     },
 
-    buttonType() {
+    buttonTypeClass() {
       return this.type + '-button' + this.isGhost;
     },
 
@@ -110,7 +110,7 @@ export default {
   }
 
   .button {
-    padding: rem(8) rem(22);
+    padding: rem(10) rem(22);
     display: inline-block;
     position: relative;
     z-index: 1;

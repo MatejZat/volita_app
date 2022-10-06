@@ -63,3 +63,16 @@
     }
   }
 }
+
+// Input generator
+@mixin inputGenerator($color) {
+  border: 2px solid rgba($color, 0.25);
+
+  &:hover {
+    border-color: rgba($color, 0.5);
+  }
+
+  &:focus {
+    border-color: $color;
+  }
+}

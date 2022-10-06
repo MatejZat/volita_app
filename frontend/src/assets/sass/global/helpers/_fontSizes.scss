@@ -1,15 +1,15 @@
 :root {
-  --font-big: #{rem(20)};
-  --font-medium: #{rem(16)};
-  --font-small: #{rem(12)};
+  --font-big: #{rem(22)};
+  --font-medium: #{rem(18)};
+  --font-small: #{rem(14)};
   --font-little: #{rem(10)};
 }
 
 @include breakpointUp($md) {
   :root {
-    --font-big: #{rem(24)};
-    --font-medium: #{rem(20)};
-    --font-small: #{rem(16)};
+    --font-big: #{rem(26)};
+    --font-medium: #{rem(22)};
+    --font-small: #{rem(18)};
     --font-little: #{rem(12)};
   }
 }

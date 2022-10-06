@@ -7,11 +7,11 @@
         </a>
       </AppButton>
 
-        <h3>Objednávky</h3>
+      <h3>Objednávky</h3>
 
-        <AppButton @click="openMenu" ripple>
-          <AppIcon iconName="Menu" />
-        </AppButton>
+      <AppButton @click="openMenu" ripple>
+        <AppIcon iconName="Menu" />
+      </AppButton>
     </div>
   </header>
 </template>

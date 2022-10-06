@@ -6,7 +6,7 @@
       </AppButton>
 
       <div class="search-input-container">
-        <AppInput placeholder="Vyhľadávajte..." />
+        <AppInput iconName="Search" placeholder="Vyhľadávajte..." />
       </div>
 
       <div>
@@ -19,7 +19,7 @@
 <script>
   import AppButton from '@/components/AppButton';
   import IconMenu from '@/components/Icons/IconMenu';
-  import AppInput from '@/components/AppInput';
+  import AppInput from '@/components/Form/AppInput';
 
   export default {
     components: {
