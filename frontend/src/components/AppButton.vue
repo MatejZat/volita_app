@@ -22,7 +22,7 @@ export default {
     rippleWhite: Boolean,
     ghost: Boolean,
     stretch: Boolean,
-    submit: Boolean
+    submit: Boolean,
   },
 
   computed: {
@@ -67,6 +67,7 @@ export default {
 
 <style lang="scss">
   .ripple-button {
+    width: 100%;
     padding: rem(1);
     position: relative;
     display: block;

@@ -4,7 +4,7 @@
 
     <div class="input-container">
       <figure v-if="iconName" class="input-icon">
-        <AppIcon :iconName="iconName" />
+        <AppIcon :icon-name="iconName" />
       </figure>
 
       <input type="text" :placeholder="placeholder" :required="required" class="font-nunito" :class="[inputTypeClass, inputHasIcon]" >

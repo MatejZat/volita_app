@@ -3,14 +3,14 @@
     <div class="top-bar-content">
       <AppButton ripple>
         <a @click.prevent="goBack" href="#">
-          <AppIcon iconName="ChevLeft" />
+          <AppIcon icon-name="ChevLeft" />
         </a>
       </AppButton>
 
-      <h3>Objednávky</h3>
+      <h3>{{ pageName }}</h3>
 
       <AppButton @click="openMenu" ripple>
-        <AppIcon iconName="Menu" />
+        <AppIcon icon-name="Menu" />
       </AppButton>
     </div>
   </header>
@@ -21,6 +21,10 @@
   import AppIcon from '@/components/AppIcon';
 
   export default {
+    props: {
+      pageName: String,
+    },
+
     components: {
       AppButton,
       AppIcon
@@ -28,7 +32,7 @@
 
     methods: {
       openMenu() {
-        this.$emit('menuIconClick');
+        this.$emit('iconHandleClick');
       },
 
       goBack() {
@@ -55,6 +59,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+
+      .ripple-button {
+        width: auto;
+      }
     }
   }
 </style>

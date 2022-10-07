@@ -1,27 +1,27 @@
 <template>
   <transition name="menu-slide">
-    <nav class="menu-wrapper">
+    <nav class="website-menu-wrapper">
       <MobileBarMenuUser />
 
       <MenuNav>
-        <MenuNavItem title="Nástenka" iconName="Home"  routeName="Dashboard" />
-        <MenuNavItem title="Kalendár" iconName="Calendar"  routeName="Calendar" />
+        <MenuNavItem title="Nástenka" icon-name="Home"  route-name="Dashboard" />
+        <MenuNavItem title="Kalendár" icon-name="Calendar"  route-name="Calendar" />
 
-        <MenuNavItemDropdown v-slot="slotProps" title="Adresár" iconName="Home">
-          <DropdownItem @click="slotProps.closeDropdown" routeName="Dashboard">Klienti</DropdownItem>
-          <DropdownItem @click="slotProps.closeDropdown" routeName="Calendar">Kontaktné osoby</DropdownItem>
-          <DropdownItem @click="slotProps.closeDropdown" routeName="Dashboard">Lead</DropdownItem>
-        </MenuNavItemDropdown>
+        <MenuNavItem v-slot="slotProps" title="Adresár" icon-name="Home" is-dropdown>
+          <MenuNavDropdownItem @click="slotProps.closeDropdown" route-name="Dashboard">Klienti</MenuNavDropdownItem>
+          <MenuNavDropdownItem @click="slotProps.closeDropdown" route-name="Calendar">Kontaktné osoby</MenuNavDropdownItem>
+          <MenuNavDropdownItem @click="slotProps.closeDropdown" route-name="Dashboard">Lead</MenuNavDropdownItem>
+        </MenuNavItem>
 
-        <MenuNavItemDropdown v-slot="slotProps" title="Obchod" iconName="Calendar">
-          <DropdownItem @click="slotProps.closeDropdown" routeName="Calendar">Obchodná nástenka</DropdownItem>
-          <DropdownItem @click="slotProps.closeDropdown" routeName="Dashboard">Obchodné prípady</DropdownItem>
-          <DropdownItem @click="slotProps.closeDropdown" routeName="Calendar">Ponuky</DropdownItem>
-          <DropdownItem @click="slotProps.closeDropdown" routeName="Dashboard">Objednávky</DropdownItem>
-          <DropdownItem @click="slotProps.closeDropdown" routeName="Calendar">Projekty</DropdownItem>
-          <DropdownItem @click="slotProps.closeDropdown" routeName="Dashboard">Produkty</DropdownItem>
-          <DropdownItem @click="slotProps.closeDropdown" routeName="Calendar">Cenníky</DropdownItem>
-        </MenuNavItemDropdown>
+        <MenuNavItem v-slot="slotProps" title="Obchod" icon-name="Calendar" is-dropdown>
+          <MenuNavDropdownItem @click="slotProps.closeDropdown" route-name="Calendar">Obchodná nástenka</MenuNavDropdownItem>
+          <MenuNavDropdownItem @click="slotProps.closeDropdown" route-name="Dashboard">Obchodné prípady</MenuNavDropdownItem>
+          <MenuNavDropdownItem @click="slotProps.closeDropdown" route-name="Calendar">Ponuky</MenuNavDropdownItem>
+          <MenuNavDropdownItem @click="slotProps.closeDropdown" route-name="Dashboard">Objednávky</MenuNavDropdownItem>
+          <MenuNavDropdownItem @click="slotProps.closeDropdown" route-name="Calendar">Projekty</MenuNavDropdownItem>
+          <MenuNavDropdownItem @click="slotProps.closeDropdown" route-name="Dashboard">Produkty</MenuNavDropdownItem>
+          <MenuNavDropdownItem @click="slotProps.closeDropdown" route-name="Calendar">Cenníky</MenuNavDropdownItem>
+        </MenuNavItem>
       </MenuNav>
 
       <MobileBarMenuMetas />
@@ -33,8 +33,7 @@
   import MobileBarMenuUser from '@/components/MobileBar/MobileBarMenuUser';
   import MenuNav from '@/components/MenuNav/MenuNav';
   import MenuNavItem from '@/components/MenuNav/MenuNavItem';
-  import MenuNavItemDropdown from '@/components/MenuNav/MenuNavItemDropdown';
-  import DropdownItem from '@/components/MenuNav/DropdownItem';
+  import MenuNavDropdownItem from '@/components/MenuNav/MenuNavDropdownItem';
   import MobileBarMenuMetas from '@/components/MobileBar/MobileBarMenuMetas';
 
   export default {
@@ -42,15 +41,14 @@
       MobileBarMenuUser,
       MenuNav,
       MenuNavItem,
-      MenuNavItemDropdown,
-      DropdownItem,
+      MenuNavDropdownItem,
       MobileBarMenuMetas
     },
   };
 </script>
 
 <style lang="scss" scoped>
-  .menu-wrapper {
+  .website-menu-wrapper {
     padding: rem(20);
     height: 100%;
     display: flex;

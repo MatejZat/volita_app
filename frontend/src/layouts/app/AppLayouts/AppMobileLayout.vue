@@ -1,11 +1,12 @@
 <template>
-  <div class="wrapper">
+  <div class="website-wrapper">
     <MobileBarMenu v-show="isMenuOpen" />
 
-    <div class="website-wrapper" :class="{ 'menu-open' : isMenuOpen }">
-      <div v-show="isMenuOpen" class="overlay" @click="toggleMenu" />
+    <div class="website-page-wrapper" :class="{ 'website-menu-open' : isMenuOpen }">
+      <!-- Closing overlay when menu is open -->
+      <div v-show="isMenuOpen" @click="toggleWebsiteMenu" class="overlay" />
 
-      <MobileBarTop @menuIconClick="toggleMenu" />
+      <MobileBarTop @iconHandleClick="toggleWebsiteMenu" page-name="Fajne" />
 
       <main>
         <div class="container">
@@ -37,7 +38,7 @@
     },
 
     methods: {
-      toggleMenu() {
+      toggleWebsiteMenu() {
         this.$store.commit('toggleMenuOpen');
       }
     },
@@ -45,7 +46,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .wrapper {
+  .website-wrapper {
     height: 100vh;
     display: flex;
     position: relative;
@@ -53,12 +54,13 @@
     background: $primary;
   }
 
-  .website-wrapper {
+  .website-page-wrapper {
     width: 100%;
     overflow: hidden;
     transform-origin: right center;
     z-index: 1;
     background: $whiteDarker;
+    will-change: transform;
     transition: all $mobileBarSpeed;
 
     main {
@@ -70,23 +72,17 @@
       width: 100%;
       height: 100%;
       position: absolute;
-      top: 0;
-      right: 0;
       z-index: 2000;
     }
   }
 
-  .menu-open {
+  .website-menu-open {
     position: absolute;
     border-radius: 12px;
-    transform: scale(0.6) translateX(40%);
+    transform: scale(0.6) translateX(50%);
 
     @include breakpointUp($md) {
-      transform: scale(0.7) translateX(30%);
-    }
-
-    main {
-      overflow: hidden;
+      transform: scale(0.7) translateX(40%);
     }
   }
 </style>

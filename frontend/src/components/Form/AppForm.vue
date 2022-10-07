@@ -7,7 +7,7 @@
 <script>
   export default {
     props: {
-      cols: Number,
+      cols: String,
     },
   }
 </script>

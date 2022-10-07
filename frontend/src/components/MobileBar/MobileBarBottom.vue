@@ -1,11 +1,11 @@
 <template>
   <footer class="bottom-bar">
     <div class="bottom-bar-content">
-      <MobileBarBottomItem title="Domov" iconName="Home" routeName="Dashboard" />
-      <MobileBarBottomItem title="Kalendár" iconName="Calendar" routeName="Calendar" />
-      <MobileBarBottomItem title="Domov" iconName="Plus" routeName="Dashboard" isExpanded />
-      <MobileBarBottomItem title="Domov" iconName="Home" routeName="Login" />
-      <MobileBarBottomItem title="Domov" iconName="Home" routeName="Calendar" />
+      <MobileBarBottomItem title="Domov" icon-name="Home" route-name="Dashboard" />
+      <MobileBarBottomItem title="Kalendár" icon-name="Calendar" route-name="Calendar" />
+      <MobileBarBottomItem title="Domov" icon-name="Plus" route-name="Dashboard" is-main />
+      <MobileBarBottomItem title="Domov" icon-name="Home" route-name="Login" />
+      <MobileBarBottomItem title="Domov" icon-name="Home" route-name="Calendar" />
     </div>
 
     <MobileBarBottomItemWave />
@@ -38,13 +38,13 @@
     .bottom-bar-content {
       padding: rem(10) rem(20);
       margin: rem(-20) auto 0 auto;
-      max-width: 660px;
+      max-width: rem(660);
       display: flex;
       justify-content: center;
       align-items: flex-end;
 
       > * {
-        width: 60px;
+        width: rem(60);
 
         &:not(:last-child) {
           margin-right: rem(20);

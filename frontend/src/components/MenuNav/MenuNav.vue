@@ -17,10 +17,6 @@
     display: flex;
     flex-direction: column;
 
-    > li:not(:last-child) {
-      margin-bottom: rem(20);
-    }
-
     &-vertical {
       flex-direction: row;
 
@@ -31,55 +27,62 @@
     }
 
     .menu-nav-item {
-      max-width: 200px;
+      max-width: rem(210);
 
-      @include breakpointUp($md) {
+      @include breakpointUp($xs) {
         max-width: none;
       }
 
       .link-wrapper {
         display: inline-flex;
         align-items: center;
-      }
+        white-space: nowrap;
 
-      .icon-wrapper {
-        margin-right: rem(10);
+        .link {
+          padding: rem(10) 0;
+          display: flex;
+          align-items: center;
 
-        svg {
-          width: rem(26);
-
-          @include breakpointUp($md) {
-            width: rem(32);
+          span {
+            margin-left: rem(10);
           }
         }
       }
 
+      .icon-wrapper svg {
+        @include breakpointDown($lg) {
+          width: rem(32);
+        }
 
-      a {
+        @include breakpointDown($xs) {
+          width: rem(22);
+        }
+      }
+
+
+      span {
         font-size: rem(20);
+        white-space: nowrap;
 
         @include breakpointUp($md) {
           font-size: rem(24);
+        }
+
+        @include breakpointUp($lg) {
+          font-size: $fontSmall;
         }
       }
 
       &-dropdown {
         @extend .menu-nav-item;
-
-        > .ripple-button {
-          width: 100%;
-        }
+        will-change: max-height;
 
         .link-wrapper {
           display: flex;
           justify-content: space-between;
 
-          .link {
-            display: flex;
-            align-items: center;
-          }
-
           .icon-dropdown {
+            margin-left: rem(20);
             transition: transform $mobileBarSpeed;
 
             svg {
@@ -87,6 +90,10 @@
 
               @include breakpointUp($md) {
                 width: rem(24);
+              }
+
+              @include breakpointUp($md) {
+                width: rem(18);
               }
             }
           }
@@ -101,33 +108,33 @@
           @include breakpointUp($md) {
             padding-left: rem(42);
           }
+
+          @include breakpointUp($lg) {
+            padding-left: rem(32);
+          }
         }
       }
     }
 
     .dropdown-open .icon-dropdown {
-      transform: rotate(90deg) !important;
+      transform: rotate(-90deg) !important;
     }
 
     .text-small {
-      .icon-wrapper {
-        margin-right: rem(6);
+      .icon-wrapper svg {
+        width: rem(16);
 
-        svg {
-          width: rem(16);
-
-          @include breakpointUp($md) {
-            width: rem(20);
-          }
+        @include breakpointUp($md) {
+          width: rem(20);
         }
       }
 
 
-      a {
-        font-size: rem(10) !important;
+      span {
+        font-size: rem(10);
 
         @include breakpointUp($md) {
-          font-size: rem(13) !important;
+          font-size: rem(13);
         }
       }
     }

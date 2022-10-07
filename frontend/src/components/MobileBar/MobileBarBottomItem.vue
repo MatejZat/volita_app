@@ -1,8 +1,8 @@
 <template>
   <AppButton ripple>
-    <RouterLink :to="{ name: routeName }" class="mobile-bottom-bar-item" :class="{ 'mobile-bottom-bar-item-expand': isExpanded }">
+    <RouterLink :to="{ name: routeName }" class="mobile-bottom-bar-item" :class="{ 'mobile-bottom-bar-item-main': isMain }">
       <figure class="icon-wrapper">
-        <AppIcon :iconName="iconName" />
+        <AppIcon :icon-name="iconName" />
       </figure>
 
       <h6>{{ title }}</h6>
@@ -19,7 +19,7 @@
       title: String,
       iconName: String,
       routeName: String,
-      isExpanded: Boolean
+      isMain: Boolean
     },
 
     components: {
@@ -35,7 +35,7 @@
     flex-direction: column;
     align-items: center;
 
-    &-expand {
+    &-main {
       .icon-wrapper {
         padding: rem(10);
         border-radius: 100%;

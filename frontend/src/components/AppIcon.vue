@@ -11,8 +11,10 @@
   import IconPlus from '@/components/Icons/IconPlus';
   import IconChevRight from '@/components/Icons/IconChevRight';
   import IconChevLeft from '@/components/Icons/IconChevLeft';
+  import IconChevDown from '@/components/Icons/IconChevDown';
   import IconMenu from '@/components/Icons/IconMenu';
   import IconSearch from '@/components/Icons/IconSearch';
+  import IconSun from '@/components/Icons/IconSun';
 
   export default {
     props: {
@@ -28,8 +30,10 @@
       IconPlus,
       IconChevRight,
       IconChevLeft,
+      IconChevDown,
       IconMenu,
-      IconSearch
+      IconSearch,
+      IconSun
     },
 
     computed: {

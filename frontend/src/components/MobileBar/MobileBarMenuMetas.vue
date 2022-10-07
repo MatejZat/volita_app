@@ -1,9 +1,9 @@
 <template>
   <footer>
     <MenuNav vertical>
-      <MenuNavItem title="Hlásenia" iconName="Bell" @click="closeMenu" small />
-      <MenuNavItem title="Nastavenia" iconName="Settings" @click="closeMenu" small />
-      <MenuNavItem title="Odhlásiť sa" iconName="Logout" @click="closeMenu" small />
+      <MenuNavItem title="Hlásenia" icon-name="Bell" small />
+      <MenuNavItem title="Nastavenia" icon-name="Settings" small />
+      <MenuNavItem title="Odhlásiť sa" icon-name="Logout" small />
     </MenuNav>
   </footer>
 </template>
@@ -16,12 +16,6 @@
     components: {
       MenuNav,
       MenuNavItem,
-    },
-
-    methods: {
-      closeMenu() {
-        this.$emit('itemClicked');
-      }
     },
   }
 </script>

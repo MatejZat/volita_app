@@ -1,21 +1,18 @@
 <template>
   <DesktopBarTop />
+  <DesktopBarMenu @menuExpand="handleExpand" />
 
-  <div class="content-wrapper">
-    <DesktopBarMenu />
+  <main ref="websitePage">
+    <DesktopBarMetas />
 
-    <main>
-      <DesktopBarMetas />
-
-      <div class="container">
-        <slot/>
-      </div>
-    </main>
-  </div>
+    <div class="container">
+      <slot/>
+    </div>
+  </main>
 </template>
 
 <script>
-  import DesktopBarTop from '@/components/DesktopBar/DesktopBarTop';
+  import DesktopBarTop from '@/components/DesktopBar/DesktopBarTop/DesktopBarTop';
   import DesktopBarMenu from '@/components/DesktopBar/DesktopBarMenu';
   import DesktopBarMetas from '@/components/DesktopBar/DesktopBarMetas';
 
@@ -25,11 +22,22 @@
       DesktopBarMenu,
       DesktopBarMetas
     },
+
+    methods: {
+      handleExpand(pixels) {
+        const websitePage = this.$refs.websitePage;
+        websitePage.style.paddingLeft = pixels + 'px';
+      }
+    },
   }
 </script>
 
 <style lang="scss" scoped>
-  .content-wrapper {
-    display: flex;
+  main {
+    padding-left: rem(64);
+    width: 100%;
+    overflow: hidden;
+    will-change: padding;
+    transition: padding $defaultSpeed;
   }
 </style>

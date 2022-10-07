@@ -1,11 +1,9 @@
 <template>
   <li class="menu-nav-dropdown-item">
-    <AppButton ripple rippleWhite>
-      <a @click.prevent="handleClick" href="#">
-        <h3>
-          <slot />
-        </h3>
-      </a>
+    <AppButton @click="handleClick" ripple ripple-white>
+      <span class="font-nunito">
+        <slot />
+      </span>
     </AppButton>
   </li>
 </template>
@@ -32,14 +30,20 @@
 </script>
 
 <style lang="scss" scoped>
-  .menu-nav-dropdown-item a {
-    padding: rem(8) 0;
-    display: inline-block;
-    font-size: rem(16);
-    color: $primaryContrast;
+  .menu-nav-dropdown-item {
+    span {
+      padding: rem(8) 0;
+      display: inline-block;
+      font-size: rem(12);
+      color: $primaryContrast;
 
-    @include breakpointUp($md) {
-      padding: rem(10) 0;
+      @include breakpointUp($md) {
+        font-size: rem(14);
+      }
+    }
+
+    .ripple-button {
+      width: auto;
     }
   }
 </style>

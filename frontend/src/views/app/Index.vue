@@ -2,93 +2,93 @@
   <div>
     <section>
       <div style="display: flex;">
-        <AppButton type="primary" stretch submit>Primary</AppButton>
-        <AppButton type="primary" routeName="Calendar" stretch ghost>Primary</AppButton>
+        <AppButton type="primary" submit>Primary</AppButton>
+        <AppButton type="primary" route-name="Calendar" ghost>Primary</AppButton>
       </div>
 
-      <AppButton type="alert" routeName="Calendar" stretch>Alert</AppButton>
-      <AppButton type="alert" routeName="Calendar" ghost>Alert</AppButton>
+      <AppButton type="alert" route-name="Calendar">Alert</AppButton>
+      <AppButton type="alert" route-name="Calendar" ghost>Alert</AppButton>
 
-      <AppButton type="error" routeName="Calendar" stretch>Error</AppButton>
-      <AppButton type="error" routeName="Calendar" ghost>Error</AppButton>
+      <AppButton type="error" route-name="Calendar">Error</AppButton>
+      <AppButton type="error" route-name="Calendar" ghost>Error</AppButton>
     </section>
 
     <section>
       <div style="display: flex;">
-        <AppButton type="primary" stretch submit>Primary</AppButton>
-        <AppButton type="primary" routeName="Calendar" stretch ghost>Primary</AppButton>
+        <AppButton type="primary" submit>Primary</AppButton>
+        <AppButton type="primary" route-name="Calendar" ghost>Primary</AppButton>
       </div>
 
-      <AppButton type="alert" routeName="Calendar" stretch>Alert</AppButton>
-      <AppButton type="alert" routeName="Calendar" ghost>Alert</AppButton>
+      <AppButton type="alert" route-name="Calendar">Alert</AppButton>
+      <AppButton type="alert" route-name="Calendar" ghost>Alert</AppButton>
 
-      <AppButton type="error" routeName="Calendar" stretch>Error</AppButton>
-      <AppButton type="error" routeName="Calendar" ghost>Error</AppButton>
+      <AppButton type="error" route-name="Calendar">Error</AppButton>
+      <AppButton type="error" route-name="Calendar" ghost>Error</AppButton>
     </section>
 
     <section>
       <div style="display: flex;">
-        <AppButton type="primary" stretch submit>Primary</AppButton>
-        <AppButton type="primary" routeName="Calendar" stretch ghost>Primary</AppButton>
+        <AppButton type="primary" submit>Primary</AppButton>
+        <AppButton type="primary" route-name="Calendar" ghost>Primary</AppButton>
       </div>
 
-      <AppButton type="alert" routeName="Calendar" stretch>Alert</AppButton>
-      <AppButton type="alert" routeName="Calendar" ghost>Alert</AppButton>
+      <AppButton type="alert" route-name="Calendar">Alert</AppButton>
+      <AppButton type="alert" route-name="Calendar" ghost>Alert</AppButton>
 
-      <AppButton type="error" routeName="Calendar" stretch>Error</AppButton>
-      <AppButton type="error" routeName="Calendar" ghost>Error</AppButton>
+      <AppButton type="error" route-name="Calendar">Error</AppButton>
+      <AppButton type="error" route-name="Calendar" ghost>Error</AppButton>
     </section>
 
     <section>
       <div style="display: flex;">
-        <AppButton type="primary" stretch submit>Primary</AppButton>
-        <AppButton type="primary" routeName="Calendar" stretch ghost>Primary</AppButton>
+        <AppButton type="primary" submit>Primary</AppButton>
+        <AppButton type="primary" route-name="Calendar" ghost>Primary</AppButton>
       </div>
 
-      <AppButton type="alert" routeName="Calendar" stretch>Alert</AppButton>
-      <AppButton type="alert" routeName="Calendar" ghost>Alert</AppButton>
+      <AppButton type="alert" route-name="Calendar">Alert</AppButton>
+      <AppButton type="alert" route-name="Calendar" ghost>Alert</AppButton>
 
-      <AppButton type="error" routeName="Calendar" stretch>Error</AppButton>
-      <AppButton type="error" routeName="Calendar" ghost>Error</AppButton>
+      <AppButton type="error" route-name="Calendar">Error</AppButton>
+      <AppButton type="error" route-name="Calendar" ghost>Error</AppButton>
     </section>
 
     <section>
       <div style="display: flex;">
-        <AppButton type="primary" stretch submit>Primary</AppButton>
-        <AppButton type="primary" routeName="Calendar" stretch ghost>Primary</AppButton>
+        <AppButton type="primary" submit>Primary</AppButton>
+        <AppButton type="primary" route-name="Calendar" ghost>Primary</AppButton>
       </div>
 
-      <AppButton type="alert" routeName="Calendar" stretch>Alert</AppButton>
-      <AppButton type="alert" routeName="Calendar" ghost>Alert</AppButton>
+      <AppButton type="alert" route-name="Calendar">Alert</AppButton>
+      <AppButton type="alert" route-name="Calendar" ghost>Alert</AppButton>
 
-      <AppButton type="error" routeName="Calendar" stretch>Error</AppButton>
-      <AppButton type="error" routeName="Calendar" ghost>Error</AppButton>
+      <AppButton type="error" route-name="Calendar">Error</AppButton>
+      <AppButton type="error" route-name="Calendar" ghost>Error</AppButton>
     </section>
 
     <section>
       <div style="display: flex;">
-        <AppButton type="primary" stretch submit>Primary</AppButton>
-        <AppButton type="primary" routeName="Calendar" stretch ghost>Primary</AppButton>
+        <AppButton type="primary" submit>Primary</AppButton>
+        <AppButton type="primary" route-name="Calendar" ghost>Primary</AppButton>
       </div>
 
-      <AppButton type="alert" routeName="Calendar" stretch>Alert</AppButton>
-      <AppButton type="alert" routeName="Calendar" ghost>Alert</AppButton>
+      <AppButton type="alert" route-name="Calendar">Alert</AppButton>
+      <AppButton type="alert" route-name="Calendar" ghost>Alert</AppButton>
 
-      <AppButton type="error" routeName="Calendar" stretch>Error</AppButton>
-      <AppButton type="error" routeName="Calendar" ghost>Error</AppButton>
+      <AppButton type="error" route-name="Calendar">Error</AppButton>
+      <AppButton type="error" route-name="Calendar" ghost>Error</AppButton>
     </section>
 
     <section>
       <div style="display: flex;">
-        <AppButton type="primary" stretch submit>Primary</AppButton>
-        <AppButton type="primary" routeName="Calendar" stretch ghost>Primary</AppButton>
+        <AppButton type="primary" submit>Primary</AppButton>
+        <AppButton type="primary" route-name="Calendar" ghost>Primary</AppButton>
       </div>
 
-      <AppButton type="alert" routeName="Calendar" stretch>Alert</AppButton>
-      <AppButton type="alert" routeName="Calendar" ghost>Alert</AppButton>
+      <AppButton type="alert" route-name="Calendar">Alert</AppButton>
+      <AppButton type="alert" route-name="Calendar" ghost>Alert</AppButton>
 
-      <AppButton type="error" routeName="Calendar" stretch>Error</AppButton>
-      <AppButton type="error" routeName="Calendar" ghost>Error</AppButton>
+      <AppButton type="error" route-name="Calendar">Error</AppButton>
+      <AppButton type="error" route-name="Calendar" ghost>Error</AppButton>
     </section>
   </div>
 </template>
