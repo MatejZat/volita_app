@@ -43,7 +43,7 @@
     }
 
     .ripple-button {
-      width: auto;
+      text-align: left;
     }
   }
 </style>

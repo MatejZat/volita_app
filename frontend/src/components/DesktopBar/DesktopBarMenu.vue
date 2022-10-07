@@ -1,8 +1,8 @@
 <template>
-  <aside ref="websiteMenu" :class="{ 'website-menu-expand' : isExpanded }">
-    <div @click="toggleExpand" class="menu-expand">
-      <AppIcon icon-name="ChevLeft" />
-    </div>
+  <aside ref="websiteMenu" :class="{ 'website-menu-expand' : isExpandedClass }">
+    <a @click.prevent="toggleExpand" href="#" class="website-menu-expand-icon" :class="{ 'website-menu-expand-icon-open' : isExpandedClass }">
+      <AppIcon icon-name="ChevRight" />
+    </a>
 
     <div class="sidebar-content">
       <MenuNav>
@@ -45,33 +45,42 @@
 
     data() {
       return {
-        isExpanded: false
+        isExpanded: 'hidden'
       }
     },
 
     mounted() {
-      const websiteMenu = this.$refs.websiteMenu;
+      this.setUserExpandOption();
+    },
 
-      websiteMenu.addEventListener('mouseover', () => {
-        websiteMenu.classList.add('website-menu-expand');
-      });
-
-      websiteMenu.addEventListener('mouseout', () => {
-        if( !this.isExpanded ) {
-          websiteMenu.classList.remove('website-menu-expand');
-        }
-      });
+    computed: {
+      isExpandedClass() {
+        return this.isExpanded === 'expanded' ? true : false;
+      },
     },
 
     methods: {
+      setUserExpandOption() {
+        const userExpandOption = localStorage.getItem('menuExpanded');
+
+        if( !userExpandOption ) {
+          localStorage.setItem('menuExpanded', 'hidden');
+        }
+
+        this.isExpanded = userExpandOption;
+      },
+
       toggleExpand() {
-        this.isExpanded = !this.isExpanded;
-      }
+        const chooseExpansion = this.isExpanded === 'expanded' ? 'hidden' : 'expanded';
+
+        this.isExpanded = chooseExpansion;
+        localStorage.setItem('menuExpanded', chooseExpansion);
+      },
     },
 
     watch: {
       isExpanded() {
-        if( this.isExpanded ) {
+        if( this.isExpanded === 'expanded' ) {
           this.$emit('menuExpand', 220);
         } else {
           this.$emit('menuExpand', 64);
@@ -93,15 +102,24 @@
     will-change: width;
     transition: width $defaultSpeed;
 
-    .menu-expand {
-      padding: rem(2) rem(3) rem(2) rem(2);
+    &:hover {
+      width: 220px;
+    }
+
+    .website-menu-expand-icon {
+      padding: rem(2);
       position: absolute;
       top: 0;
-      left: 0;
+      right: 0;
       color: $primary;
       border: 2px solid $primaryContrast;
       border-radius: 20px;
       background: $white;
+      transition: transform $defaultSpeed;
+
+      &-open {
+        transform: rotate(-180deg);
+      }
     }
 
     .sidebar-content {

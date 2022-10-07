@@ -1,10 +1,8 @@
 <template>
   <header class="top-bar">
     <div class="top-bar-content">
-      <AppButton ripple>
-        <a @click.prevent="goBack" href="#">
-          <AppIcon icon-name="ChevLeft" />
-        </a>
+      <AppButton @click="goBack" ripple>
+        <AppIcon icon-name="ChevLeft" />
       </AppButton>
 
       <h3>{{ pageName }}</h3>
