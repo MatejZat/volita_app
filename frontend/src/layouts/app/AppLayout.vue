@@ -36,7 +36,7 @@
 
     methods: {
       switchLayout() {
-        window.innerWidth < 1024 ? this.layout = 'MobileLayout' : this.layout = 'DesktopLayout';
+        window.innerWidth <= 1024 ? this.layout = 'MobileLayout' : this.layout = 'DesktopLayout';
       }
     },
   }

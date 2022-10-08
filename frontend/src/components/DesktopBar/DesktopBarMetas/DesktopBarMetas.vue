@@ -9,7 +9,7 @@
 </template>
 
 <script>
-  import DesktopBarMetasArrows from '@/components/DesktopBar/DesktopBarMetasArrows';
+  import DesktopBarMetasArrows from '@/components/DesktopBar/DesktopBarMetas/DesktopBarMetasArrows';
   
   export default {
     components: {

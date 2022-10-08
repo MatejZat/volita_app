@@ -6,16 +6,16 @@
 
     <div class="sidebar-content">
       <MenuNav>
-        <MenuNavItem title="Nástenka" icon-name="Home"  route-name="Dashboard" />
-        <MenuNavItem title="Kalendár" icon-name="Calendar"  route-name="Calendar" />
+        <MenuNavItem title="Nástenka" icon-name="Home" route-name="Dashboard" :is-menu-expanded="isExpanded" />
+        <MenuNavItem title="Kalendár" icon-name="Calendar" route-name="Calendar" :is-menu-expanded="isExpanded" />
 
-        <MenuNavItem title="Adresár" icon-name="Home" is-dropdown>
+        <MenuNavItem title="Adresár" icon-name="Home" :is-menu-expanded="isExpanded" is-dropdown>
           <MenuNavDropdownItem route-name="Dashboard">Klienti</MenuNavDropdownItem>
           <MenuNavDropdownItem route-name="Calendar">Kontaktné osoby</MenuNavDropdownItem>
           <MenuNavDropdownItem route-name="Dashboard">Lead</MenuNavDropdownItem>
         </MenuNavItem>
 
-        <MenuNavItem title="Obchod" icon-name="Calendar" is-dropdown>
+        <MenuNavItem title="Obchod" icon-name="Calendar" :is-menu-expanded="isExpanded" is-dropdown>
           <MenuNavDropdownItem route-name="Calendar">Obchodná nástenka</MenuNavDropdownItem>
           <MenuNavDropdownItem route-name="Dashboard">Obchodné prípady</MenuNavDropdownItem>
           <MenuNavDropdownItem route-name="Calendar">Ponuky</MenuNavDropdownItem>
@@ -81,7 +81,7 @@
     watch: {
       isExpanded() {
         if( this.isExpanded === 'expanded' ) {
-          this.$emit('menuExpand', 220);
+          this.$emit('menuExpand', 200);
         } else {
           this.$emit('menuExpand', 64);
         }
@@ -102,10 +102,6 @@
     will-change: width;
     transition: width $defaultSpeed;
 
-    &:hover {
-      width: 220px;
-    }
-
     .website-menu-expand-icon {
       padding: rem(2);
       position: absolute;
@@ -123,12 +119,13 @@
     }
 
     .sidebar-content {
-      padding: rem(40) rem(20) rem(30) rem(20);
+      padding-top: rem(40);
+      padding-bottom: rem(30);
       color: $white;
     }
   }
 
   .website-menu-expand {
-    width: 220px;
+    width: 200px;
   }
 </style>

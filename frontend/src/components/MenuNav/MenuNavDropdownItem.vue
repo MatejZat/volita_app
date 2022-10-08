@@ -38,7 +38,11 @@
       color: $primaryContrast;
 
       @include breakpointUp($md) {
-        font-size: rem(14);
+        font-size: rem(18);
+      }
+
+      @include breakpointUp($lg) {
+        font-size: rem(12);
       }
     }
 

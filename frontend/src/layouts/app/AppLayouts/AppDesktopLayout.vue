@@ -14,7 +14,7 @@
 <script>
   import DesktopBarTop from '@/components/DesktopBar/DesktopBarTop/DesktopBarTop';
   import DesktopBarMenu from '@/components/DesktopBar/DesktopBarMenu';
-  import DesktopBarMetas from '@/components/DesktopBar/DesktopBarMetas';
+  import DesktopBarMetas from '@/components/DesktopBar/DesktopBarMetas/DesktopBarMetas';
 
   export default {
     components: {

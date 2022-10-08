@@ -73,6 +73,7 @@ export default {
     display: block;
     border-radius: 4px;
     overflow: hidden;
+    transition: background-color $defaultSpeed;
 
     -webkit-tap-highlight-color: transparent;
     -webkit-touch-callout: none;
@@ -81,6 +82,10 @@ export default {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
+    &:hover {
+      background-color: rgba($white, 0.15);
+    }
 
     .ripple {
       width: 10px;

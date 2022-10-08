@@ -34,9 +34,14 @@
       }
 
       .link-wrapper {
+        padding: 0 rem(20);
         display: inline-flex;
         align-items: center;
         white-space: nowrap;
+
+        @include breakpointDown($lg) {
+          padding: 0;
+        }
 
         .link {
           padding: rem(10) 0;
@@ -69,7 +74,7 @@
         }
 
         @include breakpointUp($lg) {
-          font-size: $fontSmall;
+          font-size: rem(16);
         }
       }
 
@@ -89,10 +94,10 @@
               width: rem(18);
 
               @include breakpointUp($md) {
-                width: rem(24);
+                width: rem(28);
               }
 
-              @include breakpointUp($md) {
+              @include breakpointUp($lg) {
                 width: rem(18);
               }
             }
@@ -110,8 +115,39 @@
           }
 
           @include breakpointUp($lg) {
-            padding-left: rem(32);
+            padding-left: rem(53);
           }
+        }
+      }
+    }
+
+    .is-hidden {
+      position: relative;
+
+      &:hover .menu-nav-dropdown {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .menu-nav-dropdown {
+        padding: rem(10) rem(20);
+        max-height: none;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        transform: translateY(10px);
+        opacity: 0;
+        pointer-events: none;
+        border: 2px solid $primaryContrast;
+        border-left: none;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        background: $white;
+        transition: all $defaultSpeed;
+
+        span {
+          color: $dark;
         }
       }
     }
@@ -121,6 +157,14 @@
     }
 
     .text-small {
+      .link-wrapper {
+        padding: 0;
+
+        .link {
+          padding: 0;
+        }
+      }
+
       .icon-wrapper svg {
         width: rem(16);
 
