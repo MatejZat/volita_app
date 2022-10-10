@@ -17,6 +17,8 @@
   import IconSun from '@/components/Icons/IconSun';
   import IconArrowLeft from '@/components/Icons/IconArrowLeft';
   import IconArrowRight from '@/components/Icons/IconArrowRight';
+  import IconSliders from '@/components/Icons/IconSliders';
+  import IconTrash from '@/components/Icons/IconTrash';
 
   export default {
     props: {
@@ -37,7 +39,9 @@
       IconSearch,
       IconSun,
       IconArrowLeft,
-      IconArrowRight
+      IconArrowRight,
+      IconSliders,
+      IconTrash
     },
 
     computed: {

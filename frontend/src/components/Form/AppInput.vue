@@ -2,7 +2,11 @@
   <div class="app-input">
     <label v-if="label" class="font-nunito" :class="{ 'required' : required }">{{ label }}</label>
 
-    <div class="input-container">
+    <div v-if="textarea" class="input-container">
+      <textarea :rows="textareaRows"></textarea>
+    </div>
+
+    <div v-else class="input-container">
       <figure v-if="iconName" class="input-icon">
         <AppIcon :icon-name="iconName" />
       </figure>
@@ -21,7 +25,10 @@
       placeholder: String,
       iconName: String,
       type: String,
-      required: Boolean
+      textareaRows: Number,
+      width: Number,
+      required: Boolean,
+      textarea: Boolean
     },
 
     components: {
@@ -51,17 +58,14 @@
     font-size: $fontLittle;
   }
 
-  input {
-    padding: rem(8);
+  input,
+  textarea {
+    padding: rem(10);
     width: 100%;
-    font-size: $fontLittle;
+    font-size: $font12;
     border: 2px solid $primaryContrast;
     border-radius: 6px;
     transition: border-color $inputSpeed;
-
-    @include breakpointUp($md) {
-      padding: rem(10);
-    }
 
     ::placeholder {
       color: $lowContrast;
@@ -113,7 +117,7 @@
     overflow: hidden;
 
     .input-icon {
-      min-width: 34px;
+      min-width: 40px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -121,17 +125,8 @@
       background: $primary;
 
       svg {
-        width: 18px;
+        width: 22px;
       }
-
-      @include breakpointUp($md) {
-        min-width: 40px;
-
-        svg {
-          width: 22px;
-        }
-      }
-
     }
   }
 }

@@ -8,61 +8,71 @@
   </button>
 
   <RouterLink v-else :to="{ name: routeName }" class="font-nunito" :class="[buttonTypeClass, buttonStretchClass]">
-    <slot/>
+    <AppIcon v-if="iconName" :icon-name="iconName" />
+    <span>
+      <slot/>
+    </span>
   </RouterLink>
 </template>
 
 <script>
-export default {
-  props: {
-    href: String,
-    type: String,
-    routeName: String,
-    ripple: Boolean,
-    rippleWhite: Boolean,
-    ghost: Boolean,
-    stretch: Boolean,
-    submit: Boolean,
-  },
+  import AppIcon from '@/components/AppIcon';
 
-  computed: {
-    buttonStretchClass() {
-      return this.stretch ? 'button-stretch' : 'button';
+  export default {
+    props: {
+      href: String,
+      type: String,
+      routeName: String,
+      iconName: String,
+      ripple: Boolean,
+      rippleWhite: Boolean,
+      ghost: Boolean,
+      stretch: Boolean,
+      submit: Boolean,
     },
 
-    buttonTypeClass() {
-      return this.type + '-button' + this.isGhost;
+    components: {
+      AppIcon,
     },
 
-    rippleEffectColor() {
-      return this.rippleWhite ? 'ripple-color-white' : 'ripple-color-blue';
+    computed: {
+      buttonStretchClass() {
+        return this.stretch ? 'button-stretch' : 'button';
+      },
+
+      buttonTypeClass() {
+        return this.type + '-button' + this.isGhost;
+      },
+
+      rippleEffectColor() {
+        return this.rippleWhite ? 'ripple-color-white' : 'ripple-color-blue';
+      },
+
+      isGhost() {
+        return this.ghost ? '-ghost' : '';
+      }
     },
 
-    isGhost() {
-      return this.ghost ? '-ghost' : '';
-    }
-  },
+    methods: {
+      rippleEffect(event) {
+        const button = this.$refs.rippleButton;
+        const circle = document.createElement('span');
+        const diameter = Math.max(circle.clientWidth, circle.clientHeight);
+        const radius = diameter / 2;
 
-  methods: {
-    rippleEffect(event) {
-      const button = this.$refs.rippleButton;
-      const circle = document.createElement('span');
-      const diameter = Math.max(circle.clientWidth, circle.clientHeight);
-      const radius = diameter / 2;
+        circle.style.width = circle.style.height = `${circle}px`;
+        circle.style.left = `${event.clientX - (button.getBoundingClientRect().left + radius)}px`;
+        circle.style.top = `${event.clientY - (button.getBoundingClientRect().top + radius)}px`;
+        circle.classList.add('ripple');
 
-      circle.style.width = circle.style.height = `${circle}px`;
-      circle.style.left = `${event.clientX - (button.getBoundingClientRect().left + radius)}px`;
-      circle.style.top = `${event.clientY - (button.getBoundingClientRect().top + radius)}px`;
-      circle.classList.add('ripple');
+        const ripple = button.querySelector('.ripple');
 
-      const ripple = button.querySelector('.ripple');
+        if( ripple ) ripple.remove();
 
-      if( ripple ) ripple.remove();
-
-      button.appendChild(circle);
-    }
-  },
-}
+        button.appendChild(circle);
+      }
+    },
+  }
 </script>
 
 <style lang="scss">
@@ -116,14 +126,31 @@ export default {
   }
 
   .button {
-    padding: rem(10) rem(22);
-    display: inline-block;
+    padding: rem(8) rem(14);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     z-index: 1;
     overflow: hidden;
+    font-size: $font12;
     color: $white;
     border-radius: 6px;
     transition: background-color $defaultSpeed;
+
+    @include breakpointUp($md) {
+      padding: rem(8) rem(14);
+
+      svg {
+        margin-right: rem(10);
+      }
+    }
+    
+    span {
+      @include breakpointDown($md) {
+        display: none;
+      }
+    }
 
     &-stretch {
       @extend .button;

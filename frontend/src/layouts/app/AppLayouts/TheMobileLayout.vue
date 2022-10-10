@@ -1,12 +1,12 @@
 <template>
-  <div class="website-wrapper">
+  <div class="mobile-wrapper">
     <MobileBarMenu v-show="isMenuOpen" />
 
-    <div class="website-page-wrapper" :class="{ 'website-menu-open' : isMenuOpen }">
+    <div class="mobile-page-wrapper" :class="{ 'mobile-menu-open' : isMenuOpen }">
       <!-- Closing overlay when menu is open -->
-      <div v-show="isMenuOpen" @click="toggleWebsiteMenu" class="overlay" />
+      <div v-show="isMenuOpen" @click="toggleMobileMenu" class="overlay" />
 
-      <MobileBarTop @iconHandleClick="toggleWebsiteMenu" page-name="Fajne" />
+      <MobileBarTop @iconHandleClick="toggleMobileMenu" page-name="Fajne" />
 
       <main>
         <div class="container">
@@ -38,7 +38,7 @@
     },
 
     methods: {
-      toggleWebsiteMenu() {
+      toggleMobileMenu() {
         this.$store.commit('toggleMenuOpen');
       }
     },
@@ -46,7 +46,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .website-wrapper {
+  .mobile-wrapper {
     height: 100vh;
     display: flex;
     position: relative;
@@ -54,7 +54,7 @@
     background: $primary;
   }
 
-  .website-page-wrapper {
+  .mobile-page-wrapper {
     width: 100%;
     overflow: hidden;
     transform-origin: right center;
@@ -76,7 +76,7 @@
     }
   }
 
-  .website-menu-open {
+  .mobile-menu-open {
     position: absolute;
     border-radius: 12px;
     transform: scale(0.6) translateX(50%);

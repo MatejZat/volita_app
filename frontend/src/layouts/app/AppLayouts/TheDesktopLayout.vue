@@ -34,6 +34,7 @@
 
 <style lang="scss" scoped>
   main {
+    padding-top: rem(80);
     padding-left: rem(64);
     width: 100%;
     overflow: hidden;

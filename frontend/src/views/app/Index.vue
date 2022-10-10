@@ -1,104 +1,56 @@
 <template>
-  <div>
-    <section>
-      <div style="display: flex;">
-        <AppButton type="primary" submit>Primary</AppButton>
-        <AppButton type="primary" route-name="Calendar" ghost>Primary</AppButton>
-      </div>
+  <section>
+    <AppTableMetas />
 
-      <AppButton type="alert" route-name="Calendar">Alert</AppButton>
-      <AppButton type="alert" route-name="Calendar" ghost>Alert</AppButton>
+    <AppTable>
+      <TableWrapper wrapper="thead">
+        <TableData tag="th">Kód</TableData>
+        <TableData tag="th">Predmet</TableData>
+        <TableData tag="th">Klient</TableData>
+        <TableData tag="th">Stav</TableData>
+        <TableData tag="th">Konečná cena</TableData>
+      </TableWrapper>
 
-      <AppButton type="error" route-name="Calendar">Error</AppButton>
-      <AppButton type="error" route-name="Calendar" ghost>Error</AppButton>
-    </section>
-
-    <section>
-      <div style="display: flex;">
-        <AppButton type="primary" submit>Primary</AppButton>
-        <AppButton type="primary" route-name="Calendar" ghost>Primary</AppButton>
-      </div>
-
-      <AppButton type="alert" route-name="Calendar">Alert</AppButton>
-      <AppButton type="alert" route-name="Calendar" ghost>Alert</AppButton>
-
-      <AppButton type="error" route-name="Calendar">Error</AppButton>
-      <AppButton type="error" route-name="Calendar" ghost>Error</AppButton>
-    </section>
-
-    <section>
-      <div style="display: flex;">
-        <AppButton type="primary" submit>Primary</AppButton>
-        <AppButton type="primary" route-name="Calendar" ghost>Primary</AppButton>
-      </div>
-
-      <AppButton type="alert" route-name="Calendar">Alert</AppButton>
-      <AppButton type="alert" route-name="Calendar" ghost>Alert</AppButton>
-
-      <AppButton type="error" route-name="Calendar">Error</AppButton>
-      <AppButton type="error" route-name="Calendar" ghost>Error</AppButton>
-    </section>
-
-    <section>
-      <div style="display: flex;">
-        <AppButton type="primary" submit>Primary</AppButton>
-        <AppButton type="primary" route-name="Calendar" ghost>Primary</AppButton>
-      </div>
-
-      <AppButton type="alert" route-name="Calendar">Alert</AppButton>
-      <AppButton type="alert" route-name="Calendar" ghost>Alert</AppButton>
-
-      <AppButton type="error" route-name="Calendar">Error</AppButton>
-      <AppButton type="error" route-name="Calendar" ghost>Error</AppButton>
-    </section>
-
-    <section>
-      <div style="display: flex;">
-        <AppButton type="primary" submit>Primary</AppButton>
-        <AppButton type="primary" route-name="Calendar" ghost>Primary</AppButton>
-      </div>
-
-      <AppButton type="alert" route-name="Calendar">Alert</AppButton>
-      <AppButton type="alert" route-name="Calendar" ghost>Alert</AppButton>
-
-      <AppButton type="error" route-name="Calendar">Error</AppButton>
-      <AppButton type="error" route-name="Calendar" ghost>Error</AppButton>
-    </section>
-
-    <section>
-      <div style="display: flex;">
-        <AppButton type="primary" submit>Primary</AppButton>
-        <AppButton type="primary" route-name="Calendar" ghost>Primary</AppButton>
-      </div>
-
-      <AppButton type="alert" route-name="Calendar">Alert</AppButton>
-      <AppButton type="alert" route-name="Calendar" ghost>Alert</AppButton>
-
-      <AppButton type="error" route-name="Calendar">Error</AppButton>
-      <AppButton type="error" route-name="Calendar" ghost>Error</AppButton>
-    </section>
-
-    <section>
-      <div style="display: flex;">
-        <AppButton type="primary" submit>Primary</AppButton>
-        <AppButton type="primary" route-name="Calendar" ghost>Primary</AppButton>
-      </div>
-
-      <AppButton type="alert" route-name="Calendar">Alert</AppButton>
-      <AppButton type="alert" route-name="Calendar" ghost>Alert</AppButton>
-
-      <AppButton type="error" route-name="Calendar">Error</AppButton>
-      <AppButton type="error" route-name="Calendar" ghost>Error</AppButton>
-    </section>
-  </div>
+      <TableWrapper wrapper="tbody">
+        <TableRow v-for="data in tableData" :key="data.id">
+          <TableData tag="td">{{ data.id }}</TableData>
+          <TableData tag="td">{{ data.title }}</TableData>
+          <TableData tag="td">{{ data.userId }}</TableData>
+          <TableData tag="td">{{ data.completed }}</TableData>
+          <TableData tag="td">14.44</TableData>
+        </TableRow>
+      </TableWrapper>
+    </AppTable>
+  </section>
 </template>
 
 <script>
-  import AppButton from "@/components/AppButton";
+  import AppTable from '@/components/Table/AppTable';
+  import AppTableMetas from '@/components/Table/AppTableMetas';
+  import TableWrapper from '@/components/Table/TableWrapper';
+  import TableRow from '@/components/Table/TableRow';
+  import TableData from '@/components/Table/TableData';
+
+  import axios from 'axios';
 
   export default {
     components: {
-      AppButton,
+      AppTable,
+      AppTableMetas,
+      TableWrapper,
+      TableRow,
+      TableData,
+    },
+
+    data() {
+      return {
+        tableData: [],
+      }
+    },
+
+    mounted() {
+      axios.get('https://jsonplaceholder.typicode.com/todos')
+          .then(response => this.tableData = response.data);
     },
   }
 </script>

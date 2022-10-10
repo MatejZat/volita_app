@@ -1,45 +1,45 @@
 <template>
   <section>
-    <AppLogo />
+    <AppForm @submit.prevent="submit">
+      <FormWrapper :cols="3">
+        <AppInput label="Label" placeholder="asdasd" required />
+        <AppInput label="Fajne" placeholder="Input..." type="primary" />
+        <AppInput label="gud" placeholder="Input..." type="alert" />
+        <AppInput label="Poznamka" :textareaRows="6" textarea />
+        <AppInput label="daco" placeholder="Input..." type="error" required />
+      </FormWrapper>
 
-    <AppForm @submit.prevent="submit" cols="1">
-      <AppInput label="Label" placeholder="asdasd" required />
-      <AppInput label="Fajne" placeholder="Input..." type="primary" />
-      <AppInput label="gud" placeholder="Input..." type="alert" />
-      <AppInput label="daco" placeholder="Input..." type="error" required />
-
-      <AppButton type="primary" stretch submit>Submit</AppButton>
+      <AppButton type="primary" submit>Submit</AppButton>
     </AppForm>
   </section>
 </template>
 
 <script>
-import AppLogo from '@/components/AppLogo';
-import AppForm from "@/components/Form/AppForm";
-import AppInput from '@/components/Form/AppInput';
-import AppButton from "@/components/AppButton";
+  import AppForm from '@/components/Form/AppForm';
+  import AppInput from '@/components/Form/AppInput';
+  import AppButton from '@/components/AppButton';
+  import FormWrapper from '@/components/Form/FormWrapper';
 
-export default {
-  components: {
-    AppLogo,
-    AppForm,
-    AppInput,
-    AppButton
-  },
+  export default {
+    components: {
+      AppForm,
+      AppInput,
+      AppButton,
+      FormWrapper
+    },
 
-  methods: {
-    submit() {
-      console.log('asdasdasd')
-    }
-  },
-}
+    methods: {
+      submit() {
+        console.log('asdasdasd')
+      }
+    },
+  }
 </script>
 
 <style lang="scss" scoped>
-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
+  section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 </style>

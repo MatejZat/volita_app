@@ -1,6 +1,6 @@
 <template>
-  <transition name="menu-slide">
-    <nav class="website-menu-wrapper">
+  <transition name="mobile-menu-animation">
+    <nav class="mobile-menu">
       <MobileBarMenuUser />
 
       <MenuNav>
@@ -48,7 +48,7 @@
 </script>
 
 <style lang="scss" scoped>
-  .website-menu-wrapper {
+  .mobile-menu {
     padding: rem(20);
     height: 100%;
     display: flex;
@@ -64,16 +64,16 @@
     }
   }
 
-  .menu-slide-enter-active,
-  .menu-slide-leave-active {
+  .mobile-menu-animation-enter-active,
+  .mobile-menu-animation-leave-active {
     transition: transform $mobileBarSpeed;
   }
 
-  .menu-slide-enter-from {
+  .mobile-menu-animation-enter-from {
     transform: translateX(-100%);
   }
 
-  .menu-slide-leave-to {
+  .mobile-menu-animation-leave-to {
     position: absolute;
     transform: translateX(-100%);
   }

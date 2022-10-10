@@ -1,5 +1,5 @@
 <template>
-  <li ref="itemWrapper" :class="[textSizeClass, isDropdownClass]">
+  <li ref="menuItemWrapper" :class="[textSizeClass, isDropdownClass]">
     <AppButton @click.stop="handleClick" class="link-wrapper" ripple ripple-white>
       <div class="link">
         <figure class="icon-wrapper">
@@ -7,18 +7,18 @@
         </figure>
 
         <transition name="fade">
-          <span v-show="checkExpansion" class="font-nunito">{{ title }}</span>
+          <span v-show="checkMenuExpanded" class="font-nunito">{{ title }}</span>
         </transition>
       </div>
 
       <transition name="fade">
-        <figure v-if="isDropdown && checkExpansion" class="icon-dropdown">
+        <figure v-if="isDropdown && checkMenuExpanded" class="icon-dropdown">
           <AppIcon icon-name="ChevDown" />
         </figure>
       </transition>
     </AppButton>
 
-    <ul v-if="isDropdown" ref="dropdownMenu" class="menu-nav-dropdown">
+    <ul v-if="isDropdown" ref="menuDropdown" class="menu-nav-dropdown">
       <slot :closeDropdown="handleClick" />
     </ul>
   </li>
@@ -56,7 +56,7 @@
         return this.small ? 'text-small' : '';
       },
 
-      checkExpansion() {
+      checkMenuExpanded() {
         return this.isMenuExpanded === 'expanded' || window.innerWidth <= 1024 ? true : false;
       }
     },
@@ -72,35 +72,35 @@
       },
 
       toggleDropdown() {
-        const dropdownMenu = this.$refs.dropdownMenu;
-        const itemWrapper = this.$refs.itemWrapper;
-        const dropdownMenus = document.querySelectorAll('.menu-nav-dropdown');
-        const dropdownMenuHeight = dropdownMenu.scrollHeight;
+        const menuDropdown = this.$refs.menuDropdown;
+        const menuItemWrapper = this.$refs.menuItemWrapper;
+        const menuDropdowns = document.querySelectorAll('.menu-nav-dropdown');
+        const menuDropdownHeight = menuDropdown.scrollHeight;
 
         function closeDropdowns() {
-          dropdownMenus.forEach((item) => {
+          menuDropdowns.forEach((item) => {
             const parent = item.parentElement;
 
             item.style.maxHeight = '';
             parent.classList.remove('dropdown-open');
-            itemWrapper.classList.add('dropdown-open');
+            menuItemWrapper.classList.add('dropdown-open');
           });
         }
 
         if( this.isMenuExpanded === 'expanded' || window.innerWidth <= 1024 ) {
-          if( dropdownMenu.style.maxHeight ) {
-            dropdownMenu.style.maxHeight = '';
-            itemWrapper.classList.remove('dropdown-open');
-          } else if( dropdownMenuHeight > 200 ) {
-            const deviceAdjust = window.innerWidth > 1024 ? dropdownMenuHeight + 'px' : '200px';
+          if( menuDropdown.style.maxHeight ) {
+            menuDropdown.style.maxHeight = '';
+            menuItemWrapper.classList.remove('dropdown-open');
+          } else if( menuDropdownHeight > 200 ) {
+            const deviceAdjust = window.innerWidth > 1024 ? menuDropdownHeight + 'px' : '200px';
             const deviceOverflow = window.innerWidth > 1024 ? 'none' : 'auto';
 
             closeDropdowns();
-            dropdownMenu.style.maxHeight = deviceAdjust;
-            dropdownMenu.style.overflowY = deviceOverflow;
+            menuDropdown.style.maxHeight = deviceAdjust;
+            menuDropdown.style.overflowY = deviceOverflow;
           } else {
             closeDropdowns();
-            dropdownMenu.style.maxHeight = dropdownMenuHeight + 'px';
+            menuDropdown.style.maxHeight = menuDropdownHeight + 'px';
           }
         }
       }
@@ -108,13 +108,13 @@
 
     watch: {
       isMenuExpanded() {
-        const dropdownMenu = this.$refs.dropdownMenu;
+        const menuDropdown = this.$refs.menuDropdown;
 
         if( this.isDropdown ) {
           if( this.isMenuExpanded === 'hidden' ) {
-            dropdownMenu.style.maxHeight = 'none';
+            menuDropdown.style.maxHeight = 'none';
           } else {
-            dropdownMenu.style.maxHeight = '';
+            menuDropdown.style.maxHeight = '';
           }
         }
       }

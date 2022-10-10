@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import AppBreadcrumbs from '@/components/Breadcrumbs/AppBreadcrumbs';
+  import AppBreadcrumbs from '@/components/AppBreadcrumbs';
   import DesktopBarMetasArrows from '@/components/DesktopBar/DesktopBarMetas/DesktopBarMetasArrows';
   
   export default {

@@ -1,21 +1,21 @@
 <template>
-  <aside ref="websiteMenu" :class="{ 'website-menu-expand' : isExpandedClass }">
-    <a @click.prevent="toggleExpand" href="#" class="website-menu-expand-icon" :class="{ 'website-menu-expand-icon-open' : isExpandedClass }">
+  <aside ref="websiteMenu" :class="{ 'website-menu-expand' : menuExpandedClass }">
+    <a @click.prevent="toggleExpand" href="#" class="website-menu-expand-icon" :class="{ 'website-menu-expand-icon-open' : menuExpandedClass }">
       <AppIcon icon-name="ChevRight" />
     </a>
 
     <div class="sidebar-content">
       <MenuNav>
-        <MenuNavItem title="Nástenka" icon-name="Home" route-name="Dashboard" :is-menu-expanded="isExpanded" />
-        <MenuNavItem title="Kalendár" icon-name="Calendar" route-name="Calendar" :is-menu-expanded="isExpanded" />
+        <MenuNavItem title="Nástenka" icon-name="Home" route-name="Dashboard" :is-menu-expanded="menuExpanded" />
+        <MenuNavItem title="Kalendár" icon-name="Calendar" route-name="Calendar" :is-menu-expanded="menuExpanded" />
 
-        <MenuNavItem title="Adresár" icon-name="Home" :is-menu-expanded="isExpanded" is-dropdown>
+        <MenuNavItem title="Adresár" icon-name="Home" :is-menu-expanded="menuExpanded" is-dropdown>
           <MenuNavDropdownItem route-name="Dashboard">Klienti</MenuNavDropdownItem>
           <MenuNavDropdownItem route-name="Calendar">Kontaktné osoby</MenuNavDropdownItem>
           <MenuNavDropdownItem route-name="Dashboard">Lead</MenuNavDropdownItem>
         </MenuNavItem>
 
-        <MenuNavItem title="Obchod" icon-name="Calendar" :is-menu-expanded="isExpanded" is-dropdown>
+        <MenuNavItem title="Obchod" icon-name="Calendar" :is-menu-expanded="menuExpanded" is-dropdown>
           <MenuNavDropdownItem route-name="Calendar">Obchodná nástenka</MenuNavDropdownItem>
           <MenuNavDropdownItem route-name="Dashboard">Obchodné prípady</MenuNavDropdownItem>
           <MenuNavDropdownItem route-name="Calendar">Ponuky</MenuNavDropdownItem>
@@ -45,7 +45,7 @@
 
     data() {
       return {
-        isExpanded: 'hidden'
+        menuExpanded: 'hidden'
       }
     },
 
@@ -54,8 +54,8 @@
     },
 
     computed: {
-      isExpandedClass() {
-        return this.isExpanded === 'expanded' ? true : false;
+      menuExpandedClass() {
+        return this.menuExpanded === 'expanded' ? true : false;
       },
     },
 
@@ -67,20 +67,20 @@
           localStorage.setItem('menuExpanded', 'hidden');
         }
 
-        this.isExpanded = userExpandOption;
+        this.menuExpanded = userExpandOption;
       },
 
       toggleExpand() {
-        const chooseExpansion = this.isExpanded === 'expanded' ? 'hidden' : 'expanded';
+        const chooseExpansion = this.menuExpanded === 'expanded' ? 'hidden' : 'expanded';
 
-        this.isExpanded = chooseExpansion;
+        this.menuExpanded = chooseExpansion;
         localStorage.setItem('menuExpanded', chooseExpansion);
       },
     },
 
     watch: {
-      isExpanded() {
-        if( this.isExpanded === 'expanded' ) {
+      menuExpanded() {
+        if( this.menuExpanded === 'expanded' ) {
           this.$emit('menuExpand', 200);
         } else {
           this.$emit('menuExpand', 64);
@@ -95,6 +95,7 @@
     width: 64px;
     height: calc(100vh - 80px);
     position: fixed;
+    bottom: 0;
     z-index: 1000;
     border-top-right-radius: 40px;
     border-bottom-right-radius: 8px;

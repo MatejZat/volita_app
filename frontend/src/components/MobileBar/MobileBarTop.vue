@@ -7,7 +7,7 @@
 
       <h3>{{ pageName }}</h3>
 
-      <AppButton @click="openMenu" ripple>
+      <AppButton @click="openMobileMenu" ripple>
         <AppIcon icon-name="Menu" />
       </AppButton>
     </div>
@@ -29,7 +29,7 @@
     },
 
     methods: {
-      openMenu() {
+      openMobileMenu() {
         this.$emit('iconHandleClick');
       },
 

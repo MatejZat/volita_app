@@ -1,5 +1,5 @@
 <template>
-  <component :is="layout">
+  <component :is="currentLayout">
     <RouterView v-slot="{ Component }">
       <transition name="page-transition" mode="out-in">
         <component :is="Component"/>
@@ -9,9 +9,12 @@
 </template>
 
 <script>
+  // CSS
   import '@/assets/sass/app/app.scss';
-  import MobileLayout from '@/layouts/app/AppLayouts/AppMobileLayout';
-  import DesktopLayout from '@/layouts/app/AppLayouts/AppDesktopLayout';
+
+  // Layout components
+  import MobileLayout from '@/layouts/app/AppLayouts/TheMobileLayout';
+  import DesktopLayout from '@/layouts/app/AppLayouts/TheDesktopLayout';
 
   export default {
     components: {
@@ -21,7 +24,7 @@
 
     data() {
       return {
-        layout: 'MobileLayout'
+        currentLayout: 'MobileLayout'
       }
     },
 
@@ -36,7 +39,7 @@
 
     methods: {
       switchLayout() {
-        window.innerWidth <= 1024 ? this.layout = 'MobileLayout' : this.layout = 'DesktopLayout';
+        window.innerWidth <= 1024 ? this.currentLayout = 'MobileLayout' : this.currentLayout = 'DesktopLayout';
       }
     },
   }
