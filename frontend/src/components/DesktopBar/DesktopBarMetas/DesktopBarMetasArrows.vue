@@ -35,5 +35,9 @@
 <style lang="scss" scoped>
   .desktop-bar-metas-arrows {
     display: flex;
+
+    button:first-child {
+      margin-right: rem(10);
+    }
   }
 </style>

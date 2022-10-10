@@ -1,7 +1,10 @@
 <template>
   <header>
     <div class="desktop-bar-metas-content">
-      <h3>Page name</h3>
+      <div class="metas-page-info">
+        <h3>Page name</h3>
+        <AppBreadcrumbs />
+      </div>
 
       <DesktopBarMetasArrows />
     </div>
@@ -9,10 +12,12 @@
 </template>
 
 <script>
+  import AppBreadcrumbs from '@/components/Breadcrumbs/AppBreadcrumbs';
   import DesktopBarMetasArrows from '@/components/DesktopBar/DesktopBarMetas/DesktopBarMetasArrows';
   
   export default {
     components: {
+      AppBreadcrumbs,
       DesktopBarMetasArrows,
     },
   }
@@ -23,5 +28,10 @@
     padding: 0 rem(20);
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    .metas-page-info h3 {
+      margin-bottom: rem(4);
+    }
   }
 </style>

@@ -131,7 +131,6 @@
       }
 
       .menu-nav-dropdown {
-        padding: rem(10) rem(20);
         max-height: none;
         position: absolute;
         top: 0;
@@ -139,14 +138,17 @@
         transform: translateY(10px);
         opacity: 0;
         pointer-events: none;
-        border: 2px solid $primaryContrast;
-        border-left: none;
         border-top-right-radius: 8px;
         border-bottom-right-radius: 8px;
-        background: $white;
+        background: $primary;
         transition: all $defaultSpeed;
 
-        span {
+        @include breakpointUp($lg) {
+          padding-left: rem(0);
+        }
+
+        .ripple-button {
+          padding: rem(3) rem(16);
           color: $dark;
         }
       }
