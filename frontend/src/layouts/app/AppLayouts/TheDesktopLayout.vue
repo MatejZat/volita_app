@@ -1,44 +1,42 @@
 <template>
-  <DesktopBarTop />
-  <DesktopBarMenu @menuExpand="handleExpand" />
+    <DesktopBarTop/>
+    <DesktopBarMenu @menuExpand="handleExpand"/>
 
-  <main ref="websitePage">
-    <DesktopBarMetas />
+    <main ref="websitePage">
+        <DesktopBarMetas/>
 
-    <div class="container">
-      <slot/>
-    </div>
-  </main>
+        <div class="container">
+            <slot/>
+        </div>
+    </main>
 </template>
 
 <script>
-  import DesktopBarTop from '@/components/DesktopBar/DesktopBarTop/DesktopBarTop';
-  import DesktopBarMenu from '@/components/DesktopBar/DesktopBarMenu';
-  import DesktopBarMetas from '@/components/DesktopBar/DesktopBarMetas/DesktopBarMetas';
+import DesktopBarTop from '@/components/DesktopBar/DesktopBarTop/DesktopBarTop';
+import DesktopBarMenu from '@/components/DesktopBar/DesktopBarMenu';
+import DesktopBarMetas from '@/components/DesktopBar/DesktopBarMetas/DesktopBarMetas';
 
-  export default {
+export default {
     components: {
-      DesktopBarTop,
-      DesktopBarMenu,
-      DesktopBarMetas
+        DesktopBarTop,
+        DesktopBarMenu,
+        DesktopBarMetas
     },
 
     methods: {
-      handleExpand(pixels) {
-        const websitePage = this.$refs.websitePage;
-        websitePage.style.paddingLeft = pixels + 'px';
-      }
+        handleExpand( pixels ) {
+            const websitePage = this.$refs.websitePage;
+            websitePage.style.paddingLeft = pixels + 'px';
+        }
     },
-  }
+}
 </script>
 
 <style lang="scss" scoped>
-  main {
-    padding-top: rem(80);
+main {
     padding-left: rem(64);
     width: 100%;
-    overflow: hidden;
     will-change: padding;
     transition: padding $defaultSpeed;
-  }
+}
 </style>

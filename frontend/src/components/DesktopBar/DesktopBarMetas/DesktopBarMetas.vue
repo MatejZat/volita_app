@@ -1,37 +1,45 @@
 <template>
-  <header>
-    <div class="desktop-bar-metas-content">
-      <div class="metas-page-info">
-        <h3>Page name</h3>
-        <AppBreadcrumbs />
-      </div>
+    <header class="desktop-bar-metas">
+        <div class="desktop-bar-metas-content">
+            <div class="metas-page-info">
+                <h3>Page name</h3>
+                <AppBreadcrumbs/>
+            </div>
 
-      <DesktopBarMetasArrows />
-    </div>
-  </header>
+            <DesktopBarMetasArrows/>
+        </div>
+    </header>
 </template>
 
 <script>
-  import AppBreadcrumbs from '@/components/AppBreadcrumbs';
-  import DesktopBarMetasArrows from '@/components/DesktopBar/DesktopBarMetas/DesktopBarMetasArrows';
-  
-  export default {
+import AppBreadcrumbs from '@/components/AppBreadcrumbs';
+import DesktopBarMetasArrows from '@/components/DesktopBar/DesktopBarMetas/DesktopBarMetasArrows';
+
+export default {
     components: {
-      AppBreadcrumbs,
-      DesktopBarMetasArrows,
+        AppBreadcrumbs,
+        DesktopBarMetasArrows,
     },
-  }
+}
 </script>
 
 <style lang="scss" scoped>
-  .desktop-bar-metas-content {
-    padding: 0 rem(20);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.desktop-bar-metas {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+    background: rgba($whiteDarker, 0.8);
 
-    .metas-page-info h3 {
-      margin-bottom: rem(4);
+    &-content {
+        padding: rem(20);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .metas-page-info h3 {
+            margin-bottom: rem(4);
+        }
     }
-  }
+}
 </style>

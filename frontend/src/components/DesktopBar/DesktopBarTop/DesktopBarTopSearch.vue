@@ -1,21 +1,21 @@
 <template>
-  <div class="search-input-container">
-    <AppInput icon-name="Search" placeholder="Vyhľadávajte..." />
-  </div>
+    <div class="search-input-container">
+        <AppInput icon-name="Search" placeholder="Vyhľadávajte..."/>
+    </div>
 </template>
 
 <script>
-  import AppInput from '@/components/Form/AppInput';
+import AppInput from '@/components/Form/AppInput';
 
-  export default {
+export default {
     components: {
-      AppInput,
+        AppInput,
     },
-  }
+}
 </script>
 
 <style lang="scss" scoped>
-  .search-input-container {
+.search-input-container {
     width: 380px;
-  }
+}
 </style>

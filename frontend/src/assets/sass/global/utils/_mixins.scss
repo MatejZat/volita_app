@@ -19,31 +19,11 @@
   $focusColorIntense: 10%;
 
   &:before {
-    content: "";
-    width: 10px;
-    height: 10px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    z-index: -1;
-    border-radius: 10px;
     background: lighten($color, 8%);
-  }
-
-  &:hover:before {
-    animation: hover 800ms ease;
   }
 
   &:focus {
     background: lighten($color, $focusColorIntense);
-  }
-
-  @keyframes hover {
-    to {
-      transform: translate(-50%, -50%) scale(50);
-      opacity: 0;
-    }
   }
 
   &-ghost {

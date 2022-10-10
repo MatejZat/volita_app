@@ -1,47 +1,47 @@
 <template>
-  <header class="top-bar">
-    <div class="top-bar-content">
-      <AppButton @click="goBack" ripple>
-        <AppIcon icon-name="ChevLeft" />
-      </AppButton>
+    <header class="top-bar">
+        <div class="top-bar-content">
+            <AppButton @click="goBack" ripple>
+                <AppIcon icon-name="ChevLeft"/>
+            </AppButton>
 
-      <h3>{{ pageName }}</h3>
+            <h3>{{ pageName }}</h3>
 
-      <AppButton @click="openMobileMenu" ripple>
-        <AppIcon icon-name="Menu" />
-      </AppButton>
-    </div>
-  </header>
+            <AppButton @click="openMobileMenu" ripple>
+                <AppIcon icon-name="Menu"/>
+            </AppButton>
+        </div>
+    </header>
 </template>
 
 <script>
-  import AppButton from '@/components/AppButton';
-  import AppIcon from '@/components/AppIcon';
+import AppButton from '@/components/AppButton';
+import AppIcon from '@/components/AppIcon';
 
-  export default {
+export default {
     props: {
-      pageName: String,
+        pageName: String,
     },
 
     components: {
-      AppButton,
-      AppIcon
+        AppButton,
+        AppIcon
     },
 
     methods: {
-      openMobileMenu() {
-        this.$emit('iconHandleClick');
-      },
+        openMobileMenu() {
+            this.$emit( 'iconHandleClick' );
+        },
 
-      goBack() {
-        return this.$router.go(-1);
-      }
+        goBack() {
+            return this.$router.go( -1 );
+        }
     },
-  }
+}
 </script>
 
 <style lang="scss" scoped>
-  .top-bar {
+.top-bar {
     width: 100%;
     position: fixed;
     top: 0;
@@ -53,14 +53,14 @@
     background: rgba($white, 0.8);
 
     .top-bar-content {
-      padding: rem(20);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+        padding: rem(20);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
 
-      .ripple-button {
-        width: auto;
-      }
+        .ripple-button {
+            width: auto;
+        }
     }
-  }
+}
 </style>

@@ -1,28 +1,52 @@
 <template>
-  <component :is="wrapper">
-    <slot />
-  </component>
+    <TransitionGroup name="table" :tag="wrapper">
+        <slot/>
+    </TransitionGroup>
 </template>
 
 <script>
-  export default {
+export default {
     props: {
-      wrapper: String,
+        wrapper: String,
     },
-  }
+}
 </script>
 
 <style lang="scss">
-  thead {
+thead {
     display: table-header-group;
     background: $primaryContrast;
-  }
 
-  tbody {
+    @include breakpointDown($lg) {
+        display: none;
+    }
+}
+
+tbody {
     display: table-row-group;
 
-    tr:nth-child(odd) {
-      background: #F9F9F9;
+    tr {
+        background: $white;
+
+        @include breakpointUp($lg) {
+            &:nth-child(even) {
+                background: #F9F9F9;
+            }
+        }
     }
-  }
+}
+
+.table-enter-active,
+.table-leave-active {
+    transition: opacity $defaultSpeed;
+}
+
+.table-enter-from,
+.table-leave-to {
+    opacity: 0;
+}
+
+.table-leave-active {
+    position: absolute;
+}
 </style>

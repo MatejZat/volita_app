@@ -1,11 +1,11 @@
 <template>
-  <form class="app-form">
-    <slot />
-  </form>
+    <form class="app-form">
+        <slot/>
+    </form>
 </template>
 
 <script>
-  export default {}
+export default {}
 </script>
 
 <style lang="scss">

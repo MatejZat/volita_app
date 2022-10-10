@@ -1,53 +1,53 @@
 <template>
-  <li class="menu-nav-dropdown-item">
-    <AppButton @click="handleClick" ripple ripple-white>
-      <span class="font-nunito">
-        <slot />
-      </span>
-    </AppButton>
-  </li>
+    <li class="menu-nav-dropdown-item">
+        <AppButton @click="handleClick" ripple ripple-white>
+            <span class="font-nunito">
+                <slot/>
+            </span>
+        </AppButton>
+    </li>
 </template>
 
 <script>
-  import AppButton from '@/components/AppButton';
+import AppButton from '@/components/AppButton';
 
-  export default {
+export default {
     props: {
-      routeName: String,
+        routeName: String,
     },
 
     components: {
-      AppButton,
+        AppButton
     },
 
     methods: {
-      handleClick() {
-        this.$router.push({ name: this.routeName });
-        this.$store.commit('toggleMenuOpen');
-      }
+        handleClick() {
+            this.$router.push( { name: this.routeName } );
+            this.$store.commit( 'toggleMenuOpen' );
+        }
     },
-  }
+}
 </script>
 
 <style lang="scss" scoped>
-  .menu-nav-dropdown-item {
+.menu-nav-dropdown-item {
     span {
-      padding: rem(8) 0;
-      display: inline-block;
-      font-size: rem(12);
-      color: $primaryContrast;
-
-      @include breakpointUp($md) {
-        font-size: rem(18);
-      }
-
-      @include breakpointUp($lg) {
+        padding: rem(8) 0;
+        display: inline-block;
         font-size: rem(12);
-      }
+        color: $primaryContrast;
+
+        @include breakpointUp($md) {
+            font-size: rem(18);
+        }
+
+        @include breakpointUp($lg) {
+            font-size: rem(12);
+        }
     }
 
     .ripple-button {
-      text-align: left;
+        text-align: left;
     }
-  }
+}
 </style>

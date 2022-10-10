@@ -3,8 +3,8 @@
 </template>
 
 <script>
-  import AuthLayout from "@/layouts/auth/AuthLayout";
-  import AppLayout from "@/layouts/app/AppLayout";
+import AuthLayout from "@/layouts/auth/AuthLayout";
+import AppLayout from "@/layouts/app/AppLayout";
 
 export default {
   components: {
