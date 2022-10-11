@@ -3,7 +3,7 @@
         <div class="bottom-bar-content">
             <MobileBarBottomItem title="Domov" icon-name="Home" route-name="Dashboard"/>
             <MobileBarBottomItem title="Kalendár" icon-name="Calendar" route-name="Calendar"/>
-            <MobileBarBottomItem title="Domov" icon-name="Plus" route-name="Dashboard" is-main/>
+            <MobileBarBottomItem title="Obchodné prípady" icon-name="Plus" route-name="BusinessCases" is-main/>
             <MobileBarBottomItem title="Domov" icon-name="Home" route-name="Login"/>
             <MobileBarBottomItem title="Domov" icon-name="Home" route-name="Calendar"/>
         </div>

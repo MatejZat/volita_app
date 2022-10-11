@@ -106,6 +106,7 @@ export default {
 
             .menu-nav-dropdown {
                 padding-left: rem(36);
+                padding-right: rem(20);
                 max-height: 0;
                 overflow: hidden;
                 transition: max-height $mobileBarSpeed;
@@ -144,7 +145,8 @@ export default {
             transition: all $defaultSpeed;
 
             @include breakpointUp($lg) {
-                padding-left: rem(0);
+                padding-left: 0;
+                padding-right: 0;
             }
 
             .ripple-button {

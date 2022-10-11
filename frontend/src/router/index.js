@@ -27,7 +27,7 @@ const routes = [
     {
         path: '/',
         name: 'Dashboard',
-        meta: { breadcrumbTitle: 'Domov' },
+        meta: { breadcrumbTitle: 'Nástenka' },
         component: Index
     },
 

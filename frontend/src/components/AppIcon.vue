@@ -21,6 +21,9 @@ import IconSliders from '@/components/Icons/IconSliders';
 import IconTrash from '@/components/Icons/IconTrash';
 import IconEdit from '@/components/Icons/IconEdit';
 import IconX from '@/components/Icons/IconX';
+import IconClipboard from '@/components/Icons/IconClipboard';
+import IconDollar from '@/components/Icons/IconDollar';
+import IconFolder from '@/components/Icons/IconFolder';
 
 export default {
     props: {
@@ -45,7 +48,11 @@ export default {
         IconSliders,
         IconTrash,
         IconEdit,
-        IconX
+        IconX,
+        IconClipboard,
+        IconDollar,
+        IconFolder
+
     },
 
     computed: {

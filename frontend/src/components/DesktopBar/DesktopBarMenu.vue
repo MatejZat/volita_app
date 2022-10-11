@@ -7,17 +7,17 @@
 
         <div class="sidebar-content">
             <MenuNav>
-                <MenuNavItem title="Nástenka" icon-name="Home" route-name="Dashboard" :is-menu-expanded="menuExpanded"/>
+                <MenuNavItem title="Nástenka" icon-name="Clipboard" route-name="Dashboard" :is-menu-expanded="menuExpanded"/>
                 <MenuNavItem title="Kalendár" icon-name="Calendar" route-name="Calendar"
                              :is-menu-expanded="menuExpanded"/>
 
-                <MenuNavItem title="Adresár" icon-name="Home" :is-menu-expanded="menuExpanded" is-dropdown>
+                <MenuNavItem title="Adresár" icon-name="Folder" :is-menu-expanded="menuExpanded" is-dropdown>
                     <MenuNavDropdownItem route-name="Dashboard">Klienti</MenuNavDropdownItem>
                     <MenuNavDropdownItem route-name="Calendar">Kontaktné osoby</MenuNavDropdownItem>
                     <MenuNavDropdownItem route-name="Dashboard">Lead</MenuNavDropdownItem>
                 </MenuNavItem>
 
-                <MenuNavItem title="Obchod" icon-name="Calendar" :is-menu-expanded="menuExpanded" is-dropdown>
+                <MenuNavItem title="Obchod" icon-name="Dollar" :is-menu-expanded="menuExpanded" is-dropdown>
                     <MenuNavDropdownItem route-name="Calendar">Obchodná nástenka</MenuNavDropdownItem>
                     <MenuNavDropdownItem route-name="BusinessCases">Obchodné prípady</MenuNavDropdownItem>
                     <MenuNavDropdownItem route-name="Calendar">Ponuky</MenuNavDropdownItem>

@@ -13,7 +13,7 @@ export default {
 <style lang="scss">
 .app-table-row {
     display: table-row;
-    box-sizing: content-box;
+    position: relative;
     box-shadow: 0 -4px 0 -2px $primaryContrast inset;
 
     &:hover {
@@ -28,8 +28,8 @@ export default {
         margin-bottom: rem(8);
         display: block;
         overflow: hidden;
-        border: 2px solid $primaryContrast;
         border-radius: 8px;
+        box-shadow: 0 0 0 2px $primaryContrast inset;
 
         &:last-child {
             margin-bottom: 0;
