@@ -2,8 +2,8 @@
     <header class="desktop-bar-metas">
         <div class="desktop-bar-metas-content">
             <div class="metas-page-info">
-                <h3>Page name</h3>
-                <AppBreadcrumbs/>
+                <h3>{{ currentPageName }}</h3>
+                <AppBreadcrumbs :breadcrumbs="currentMatches"/>
             </div>
 
             <DesktopBarMetasArrows/>
@@ -19,6 +19,16 @@ export default {
     components: {
         AppBreadcrumbs,
         DesktopBarMetasArrows,
+    },
+
+    computed: {
+        currentPageName() {
+            return this.$route.meta.breadcrumbTitle;
+        },
+
+        currentMatches() {
+            return this.$route.matched;
+        }
     },
 }
 </script>

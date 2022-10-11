@@ -49,7 +49,7 @@ export default {
         },
 
         isMenuExpandedClass() {
-            return 'is-' + this.isMenuExpanded;
+            return `is-${this.isMenuExpanded}`;
         },
 
         textSizeClass() {
@@ -92,7 +92,7 @@ export default {
                     menuDropdown.style.maxHeight = '';
                     menuItemWrapper.classList.remove( 'dropdown-open' );
                 } else if ( menuDropdownHeight > 200 ) {
-                    const deviceAdjust = window.innerWidth > 1024 ? menuDropdownHeight + 'px' : '200px';
+                    const deviceAdjust = window.innerWidth > 1024 ? `${menuDropdownHeight}px` : '200px';
                     const deviceOverflow = window.innerWidth > 1024 ? 'none' : 'auto';
 
                     closeDropdowns();
@@ -100,7 +100,7 @@ export default {
                     menuDropdown.style.overflowY = deviceOverflow;
                 } else {
                     closeDropdowns();
-                    menuDropdown.style.maxHeight = menuDropdownHeight + 'px';
+                    menuDropdown.style.maxHeight = `${menuDropdownHeight}px`;
                 }
             }
         }

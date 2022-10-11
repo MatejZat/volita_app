@@ -6,6 +6,6 @@
 
 <style lang="scss" scoped>
 .logo-wrapper {
-    width: rem(80);
+    width: rem(86);
 }
 </style>

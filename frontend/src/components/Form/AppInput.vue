@@ -11,8 +11,12 @@
                 <AppIcon :icon-name="iconName"/>
             </figure>
 
-            <input @input="emitValue($event)" type="text" :placeholder="placeholder" :required="required"
+            <input @input="emitValue($event)" v-model="inputText" type="text" :placeholder="placeholder" :required="required"
                    class="font-nunito" :class="[inputTypeClass, inputHasIcon]">
+
+            <div v-show="inputText" @click="removeValue" class="input-icon-remove">
+                <AppIcon icon-name="X"/>
+            </div>
         </div>
     </div>
 </template>
@@ -32,13 +36,19 @@ export default {
         textarea: Boolean
     },
 
+    data() {
+        return {
+            inputText: ''
+        }
+    },
+
     components: {
         AppIcon
     },
 
     computed: {
         inputTypeClass() {
-            return this.type + '-input';
+            return `${ this.type }-input`;
         },
 
         inputHasIcon() {
@@ -49,6 +59,13 @@ export default {
     methods: {
         emitValue( event ) {
             this.$emit( 'inputFill', event.target.value );
+        },
+
+        removeValue() {
+            if( this.inputText ) {
+                this.inputText = '';
+                this.$emit( 'inputFill', '' );
+            }
         }
     },
 }
@@ -120,6 +137,7 @@ export default {
 
     .input-container {
         display: flex;
+        position: relative;
         border-radius: 6px;
         overflow: hidden;
 
@@ -133,6 +151,15 @@ export default {
 
             svg {
                 width: 22px;
+            }
+
+            &-remove {
+                position: absolute;
+                top: 50%;
+                right: rem(10);
+                transform: translateY(-50%);
+                cursor: pointer;
+                color: $lowContrast;
             }
         }
     }

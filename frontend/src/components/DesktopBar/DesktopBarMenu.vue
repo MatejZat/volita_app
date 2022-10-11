@@ -19,7 +19,7 @@
 
                 <MenuNavItem title="Obchod" icon-name="Calendar" :is-menu-expanded="menuExpanded" is-dropdown>
                     <MenuNavDropdownItem route-name="Calendar">Obchodná nástenka</MenuNavDropdownItem>
-                    <MenuNavDropdownItem route-name="Dashboard">Obchodné prípady</MenuNavDropdownItem>
+                    <MenuNavDropdownItem route-name="BusinessCases">Obchodné prípady</MenuNavDropdownItem>
                     <MenuNavDropdownItem route-name="Calendar">Ponuky</MenuNavDropdownItem>
                     <MenuNavDropdownItem route-name="Dashboard">Objednávky</MenuNavDropdownItem>
                     <MenuNavDropdownItem route-name="Calendar">Projekty</MenuNavDropdownItem>

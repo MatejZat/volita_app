@@ -19,7 +19,7 @@
                 <MenuNavItem v-slot="slotProps" title="Obchod" icon-name="Calendar" is-dropdown>
                     <MenuNavDropdownItem @click="slotProps.closeDropdown" route-name="Calendar">Obchodná nástenka
                     </MenuNavDropdownItem>
-                    <MenuNavDropdownItem @click="slotProps.closeDropdown" route-name="Dashboard">Obchodné prípady
+                    <MenuNavDropdownItem @click="slotProps.closeDropdown" route-name="BusinessCases">Obchodné prípady
                     </MenuNavDropdownItem>
                     <MenuNavDropdownItem @click="slotProps.closeDropdown" route-name="Calendar">Ponuky
                     </MenuNavDropdownItem>

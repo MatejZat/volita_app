@@ -41,7 +41,7 @@ export default {
         },
 
         buttonTypeClass() {
-            return this.type + '-button' + this.isGhost;
+            return `${this.type}-button${this.isGhost}`;
         },
 
         rippleEffectColor() {

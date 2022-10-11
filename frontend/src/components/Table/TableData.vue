@@ -1,5 +1,5 @@
 <template>
-    <component :is="tag" class="app-table-data">
+    <component :is="tag" class="app-table-data" :class="{ 'app-table-data-edit': edit }">
         <slot/>
     </component>
 </template>
@@ -8,11 +8,12 @@
 export default {
     props: {
         tag: String,
+        edit: Boolean
     },
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .app-table-data {
     padding: rem(12) rem(20);
     display: table-cell;
@@ -34,5 +35,13 @@ export default {
         }
     }
 
+    &-edit {
+        text-align: right;
+        color: $primary;
+
+        a {
+            opacity: 0;
+        }
+    }
 }
 </style>

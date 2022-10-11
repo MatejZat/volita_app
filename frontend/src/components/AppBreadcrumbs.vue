@@ -1,6 +1,10 @@
 <template>
     <div class="app-breadcrumbs font-nunito">
-        <span v-for="breadcrumb in breadcrumbs" :key="breadcrumb.id">{{ breadcrumb.title }}</span>
+        <div v-for="breadcrumb in breadcrumbs" :key="breadcrumb.id">
+            <span v-if="breadcrumb.meta.breadcrumbTitle">
+                {{ breadcrumb.meta.breadcrumbTitle }}
+            </span>
+        </div>
     </div>
 </template>
 
@@ -8,27 +12,10 @@
 export default {
     props: {
         title: String,
-        routeName: String
+        routeName: String,
+        breadcrumbs: Object
     },
 
-    data() {
-        return {
-            breadcrumbs: [
-                {
-                    id: 1,
-                    title: 'Pigi'
-                },
-                {
-                    id: 2,
-                    title: 'Pigi 2'
-                },
-                {
-                    id: 3,
-                    title: 'Pigi 3'
-                },
-            ]
-        }
-    },
 }
 </script>
 
@@ -38,30 +25,31 @@ export default {
     font-size: $font12;
     color: $lowContrast;
 
-
-    span {
-        &:first-child {
+    div {
+        &:first-child span {
             padding-right: rem(14);
         }
 
         &:not(:first-child) {
-            padding: 0 rem(14);
-            position: relative;
+            span {
+                padding: 0 rem(14);
+                position: relative;
 
-            &:before {
-                content: '';
-                width: rem(4);
-                height: rem(4);
-                position: absolute;
-                top: 50%;
-                left: 0;
-                transform: translateY(-50%);
-                border-radius: 4px;
-                background: $primary;
+                &:before {
+                    content: '';
+                    width: rem(4);
+                    height: rem(4);
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    transform: translateY(-50%);
+                    border-radius: 4px;
+                    background: $primary;
+                }
             }
         }
 
-        &:last-child {
+        &:last-child span {
             padding-right: 0;
         }
     }

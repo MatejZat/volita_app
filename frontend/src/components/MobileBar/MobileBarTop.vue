@@ -5,7 +5,7 @@
                 <AppIcon icon-name="ChevLeft"/>
             </AppButton>
 
-            <h3>{{ pageName }}</h3>
+            <h3>{{ currentPageName }}</h3>
 
             <AppButton @click="openMobileMenu" ripple>
                 <AppIcon icon-name="Menu"/>
@@ -19,13 +19,15 @@ import AppButton from '@/components/AppButton';
 import AppIcon from '@/components/AppIcon';
 
 export default {
-    props: {
-        pageName: String,
-    },
-
     components: {
         AppButton,
         AppIcon
+    },
+
+    computed: {
+        currentPageName() {
+            return this.$route.meta.breadcrumbTitle;
+        }
     },
 
     methods: {

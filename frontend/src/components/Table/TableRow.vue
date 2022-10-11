@@ -5,13 +5,24 @@
 </template>
 
 <script>
-export default {}
+export default {
+
+}
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .app-table-row {
     display: table-row;
-    border-bottom: 2px solid $primaryContrast;
+    box-sizing: content-box;
+    box-shadow: 0 -4px 0 -2px $primaryContrast inset;
+
+    &:hover {
+        box-shadow: 0 0 0 2px $primary inset;
+
+        .app-table-data-edit a {
+            opacity: 1;
+        }
+    }
 
     @include breakpointDown($lg) {
         margin-bottom: rem(8);

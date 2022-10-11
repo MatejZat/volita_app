@@ -19,6 +19,8 @@ import IconArrowLeft from '@/components/Icons/IconArrowLeft';
 import IconArrowRight from '@/components/Icons/IconArrowRight';
 import IconSliders from '@/components/Icons/IconSliders';
 import IconTrash from '@/components/Icons/IconTrash';
+import IconEdit from '@/components/Icons/IconEdit';
+import IconX from '@/components/Icons/IconX';
 
 export default {
     props: {
@@ -41,12 +43,14 @@ export default {
         IconArrowLeft,
         IconArrowRight,
         IconSliders,
-        IconTrash
+        IconTrash,
+        IconEdit,
+        IconX
     },
 
     computed: {
         icon() {
-            return 'Icon' + this.iconName;
+            return `Icon${this.iconName}`;
         },
     },
 }

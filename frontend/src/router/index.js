@@ -27,6 +27,7 @@ const routes = [
     {
         path: '/',
         name: 'Dashboard',
+        meta: { breadcrumbTitle: 'Domov' },
         component: Index
     },
 
@@ -36,10 +37,36 @@ const routes = [
     {
         path: '/kalendar',
         name: 'Calendar',
+        meta: { breadcrumbTitle: 'Kalendár' },
         component: function () {
             return import(/* webpackChunkName: "calendar" */ '../views/app/Calendar.vue')
         }
-    }
+    },
+
+    //BUSINESS CASES
+
+    {
+        path: '/obchodne-pripady',
+        meta: { breadcrumbTitle: 'Obchodné prípady' },
+        children: [
+            {
+                path: '',
+                name: 'BusinessCases',
+                component: function () {
+                    return import(/* webpackChunkName: "business-cases" */ '../views/app/BusinessCases/CasesIndex.vue')
+                },
+            },
+            {
+                path: '/obchodne-pripady/:id/edit',
+                name: 'BusinessCasesEdit',
+                meta: { breadcrumbTitle: 'Nazov' },
+                component: function () {
+                    return import(/* webpackChunkName: "business-cases" */ '../views/app/BusinessCases/CasesEdit.vue')
+                },
+            }
+        ]
+    },
+
 ]
 
 

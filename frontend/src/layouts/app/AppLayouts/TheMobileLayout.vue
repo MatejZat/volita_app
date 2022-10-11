@@ -6,7 +6,7 @@
             <!-- Closing overlay when menu is open -->
             <div v-show="isMenuOpen" @click="toggleMobileMenu" class="overlay"/>
 
-            <MobileBarTop @iconHandleClick="toggleMobileMenu" page-name="Fajne"/>
+            <MobileBarTop @iconHandleClick="toggleMobileMenu" />
 
             <main>
                 <div class="container">

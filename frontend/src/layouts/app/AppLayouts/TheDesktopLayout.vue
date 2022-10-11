@@ -3,7 +3,7 @@
     <DesktopBarMenu @menuExpand="handleExpand"/>
 
     <main ref="websitePage">
-        <DesktopBarMetas/>
+        <DesktopBarMetas />
 
         <div class="container">
             <slot/>

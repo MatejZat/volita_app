@@ -1,37 +1,15 @@
 <template>
     <section>
-        <AppForm @submit.prevent="submit">
-            <FormWrapper :cols="3">
-                <AppInput label="Label" placeholder="asdasd" required/>
-                <AppInput label="Fajne" placeholder="Input..." type="primary"/>
-                <AppInput label="gud" placeholder="Input..." type="alert"/>
-                <AppInput label="Poznamka" :textareaRows="6" textarea/>
-                <AppInput label="daco" placeholder="Input..." type="error" required/>
-            </FormWrapper>
-
-            <AppButton type="primary" submit>Submit</AppButton>
-        </AppForm>
+        <AppLogo />
     </section>
 </template>
 
 <script>
-import AppForm from '@/components/Form/AppForm';
-import AppInput from '@/components/Form/AppInput';
-import AppButton from '@/components/AppButton';
-import FormWrapper from '@/components/Form/FormWrapper';
+import AppLogo from "@/components/AppLogo";
 
 export default {
     components: {
-        AppForm,
-        AppInput,
-        AppButton,
-        FormWrapper
-    },
-
-    methods: {
-        submit() {
-            console.log( 'asdasdasd' )
-        }
+        AppLogo
     },
 }
 </script>
@@ -39,7 +17,9 @@ export default {
 <style lang="scss" scoped>
 section {
     width: 100%;
+    height: calc(100vh - 218px);
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 </style>

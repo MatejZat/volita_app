@@ -18,7 +18,10 @@ export default {}
         overflow: hidden;
         font-size: $font12;
         text-align: left;
-        border-radius: 12px;
+
+        @include breakpointUp($lg) {
+            border-radius: 12px;
+        }
     }
 }
 </style>
