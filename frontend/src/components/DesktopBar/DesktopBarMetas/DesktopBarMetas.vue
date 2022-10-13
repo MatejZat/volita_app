@@ -23,7 +23,7 @@ export default {
 
     computed: {
         currentPageName() {
-            return this.$route.meta.breadcrumbTitle;
+            return this.$route.meta.title;
         },
 
         currentMatches() {

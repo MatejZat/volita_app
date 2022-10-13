@@ -1,5 +1,5 @@
 <template>
-    <li ref="menuItemWrapper" :class="[textSizeClass, isDropdownClass]">
+    <li ref="menuNavItem" :class="[ textSizeClass, isDropdownClass ]">
         <AppButton @click.stop="handleClick" class="link-wrapper" ripple ripple-white>
             <div class="link">
                 <figure class="icon-wrapper">
@@ -49,7 +49,7 @@ export default {
         },
 
         isMenuExpandedClass() {
-            return `is-${this.isMenuExpanded}`;
+            return `is-${ this.isMenuExpanded }`;
         },
 
         textSizeClass() {
@@ -64,16 +64,16 @@ export default {
     methods: {
         handleClick() {
             if ( this.isDropdown ) {
-                requestAnimationFrame( this.toggleDropdown );
+                window.requestAnimationFrame( this.toggleDropdown );
             } else {
-                this.$store.commit( 'toggleMenuOpen' );
-                return this.$router.push( { name: this.routeName } );
+                this.$store.commit( 'toggleMobileMenu' );
+                this.$router.push( { name: this.routeName } );
             }
         },
 
         toggleDropdown() {
             const menuDropdown = this.$refs.menuDropdown;
-            const menuItemWrapper = this.$refs.menuItemWrapper;
+            const menuNavItem = this.$refs.menuNavItem;
             const menuDropdowns = document.querySelectorAll( '.menu-nav-dropdown' );
             const menuDropdownHeight = menuDropdown.scrollHeight;
 
@@ -83,16 +83,16 @@ export default {
 
                     item.style.maxHeight = '';
                     parent.classList.remove( 'dropdown-open' );
-                    menuItemWrapper.classList.add( 'dropdown-open' );
+                    menuNavItem.classList.add( 'dropdown-open' );
                 } );
             }
 
             if ( this.isMenuExpanded === 'expanded' || window.innerWidth <= 1024 ) {
                 if ( menuDropdown.style.maxHeight ) {
                     menuDropdown.style.maxHeight = '';
-                    menuItemWrapper.classList.remove( 'dropdown-open' );
+                    menuNavItem.classList.remove( 'dropdown-open' );
                 } else if ( menuDropdownHeight > 200 ) {
-                    const deviceAdjust = window.innerWidth > 1024 ? `${menuDropdownHeight}px` : '200px';
+                    const deviceAdjust = window.innerWidth > 1024 ? `${ menuDropdownHeight }px` : '200px';
                     const deviceOverflow = window.innerWidth > 1024 ? 'none' : 'auto';
 
                     closeDropdowns();
@@ -100,7 +100,7 @@ export default {
                     menuDropdown.style.overflowY = deviceOverflow;
                 } else {
                     closeDropdowns();
-                    menuDropdown.style.maxHeight = `${menuDropdownHeight}px`;
+                    menuDropdown.style.maxHeight = `${ menuDropdownHeight }px`;
                 }
             }
         }

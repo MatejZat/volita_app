@@ -1,17 +1,17 @@
 export default {
-  state: {
-    isMenuOpen: false,
-  },
+    state: {
+        isMenuOpen: false,
+    },
 
-  mutations: {
-    toggleMenuOpen(state) {
-      state.isMenuOpen = !state.isMenuOpen;
-    }
-  },
+    mutations: {
+        toggleMobileMenu( state ) {
+            state.isMenuOpen = !state.isMenuOpen;
+        }
+    },
 
-  getters: {
-    isMenuOpen(state) {
-      return state.isMenuOpen;
+    getters: {
+        isMenuOpen( state ) {
+            return state.isMenuOpen;
+        }
     }
-  }
 }

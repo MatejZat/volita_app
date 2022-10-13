@@ -9,9 +9,9 @@
 
 <style lang="scss" scoped>
 .wave-wrapper {
-    width: 170px;
+    width: 200px;
     position: absolute;
-    top: -24px;
+    top: -28px;
     left: 50%;
     transform: translateX(-50%);
     z-index: -1;

@@ -7,21 +7,34 @@
 </template>
 
 <script>
-export default {}
+export default {
+
+}
 </script>
 
 <style lang="scss">
-.app-table-wrapper {
-    .app-table {
-        width: 100%;
-        display: table;
-        overflow: hidden;
-        font-size: $font12;
-        text-align: left;
+.app-table-wrapper .app-table {
+    width: 100%;
+    display: table;
+    overflow: hidden;
+    font-size: $font12;
+    text-align: left;
 
-        @include breakpointUp($lg) {
-            border-radius: 12px;
+    @include breakpointUp($lg) {
+        border-radius: 12px;
+    }
+
+    thead {
+        display: table-header-group;
+        background: $primaryContrast;
+        
+        @include breakpointDown($lg) {
+            display: none;
         }
+    }
+
+    tbody {
+        display: table-row-group;
     }
 }
 </style>

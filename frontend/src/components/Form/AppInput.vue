@@ -11,10 +11,9 @@
                 <AppIcon :icon-name="iconName"/>
             </figure>
 
-            <input @input="emitValue($event)" v-model="inputText" type="text" :placeholder="placeholder" :required="required"
-                   class="font-nunito" :class="[inputTypeClass, inputHasIcon]">
+            <input @input="emitValue($event)" v-model="inputText" type="text" :placeholder="placeholder" :required="required" class="font-nunito" :class="[inputTypeClass, inputHasIcon]">
 
-            <div v-show="inputText" @click="removeValue" class="input-icon-remove">
+            <div v-if="!closeButton" v-show="inputText" @click="removeValue" class="input-icon-remove">
                 <AppIcon icon-name="X"/>
             </div>
         </div>
@@ -33,7 +32,8 @@ export default {
         textareaRows: Number,
         width: Number,
         required: Boolean,
-        textarea: Boolean
+        textarea: Boolean,
+        closeButton: Boolean
     },
 
     data() {

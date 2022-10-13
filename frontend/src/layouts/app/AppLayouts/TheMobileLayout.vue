@@ -6,7 +6,7 @@
             <!-- Closing overlay when menu is open -->
             <div v-show="isMenuOpen" @click="toggleMobileMenu" class="overlay"/>
 
-            <MobileBarTop @iconHandleClick="toggleMobileMenu" />
+            <MobileBarTop @iconMenuClick="toggleMobileMenu"/>
 
             <main>
                 <div class="container">
@@ -39,7 +39,7 @@ export default {
 
     methods: {
         toggleMobileMenu() {
-            this.$store.commit( 'toggleMenuOpen' );
+            this.$store.commit( 'toggleMobileMenu' );
         }
     },
 }

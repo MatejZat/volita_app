@@ -2,11 +2,11 @@
     <header class="app-table-metas">
         <div class="app-table-metas-content">
             <div class="filter-input-container">
-                <AppInput @inputFill="filterData" placeholder="Prehľadávať výsledky" icon-name="Sliders"/>
+                <AppInput @inputFill="handleInput" placeholder="Prehľadávať výsledky" icon-name="Sliders"/>
             </div>
 
             <aside class="app-table-metas-buttons">
-                <AppButton type="primary" icon-name="Plus">Vytvoriť prípad</AppButton>
+                <AppButton @click="handleClick" type="primary" icon-name="Plus">{{ buttonText }}</AppButton>
             </aside>
         </div>
     </header>
@@ -17,14 +17,22 @@ import AppInput from '@/components/Form/AppInput';
 import AppButton from '@/components/AppButton';
 
 export default {
+    props: {
+        buttonText: String,
+    },
+
     components: {
         AppInput,
         AppButton
     },
 
     methods: {
-        filterData( text ) {
+        handleInput( text ) {
             this.$emit( 'filterData', text );
+        },
+
+        handleClick() {
+            this.$emit('buttonClick');
         }
     },
 }

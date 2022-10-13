@@ -1,9 +1,7 @@
 <template>
     <li class="menu-nav-dropdown-item">
-        <AppButton @click="handleClick" ripple ripple-white>
-            <span class="font-nunito">
-                <slot/>
-            </span>
+        <AppButton @click="handleClick" :button-title="title" ripple ripple-white>
+            <span class="font-nunito">{{ title }}</span>
         </AppButton>
     </li>
 </template>
@@ -13,6 +11,7 @@ import AppButton from '@/components/AppButton';
 
 export default {
     props: {
+        title: String,
         routeName: String,
     },
 
@@ -22,8 +21,8 @@ export default {
 
     methods: {
         handleClick() {
+            this.$store.commit( 'toggleMobileMenu' );
             this.$router.push( { name: this.routeName } );
-            this.$store.commit( 'toggleMenuOpen' );
         }
     },
 }

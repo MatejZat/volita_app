@@ -1,6 +1,6 @@
 <template>
     <footer>
-        <MenuNav vertical>
+        <MenuNav horizontal>
             <MenuNavItem title="Hlásenia" icon-name="Bell" small/>
             <MenuNavItem title="Nastavenia" icon-name="Settings" small/>
             <MenuNavItem title="Odhlásiť sa" icon-name="Logout" small/>

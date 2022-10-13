@@ -1,58 +1,59 @@
 <template>
     <section>
-        <AppTableMetas @filterData="setFilterText"/>
+        <AppTableMetas @filterData="setFilterText" button-text="Vytvoriť prípad"/>
 
         <AppTable>
-            <TableWrapper wrapper="thead">
-                <TableData tag="th">Predmet</TableData>
-                <TableData tag="th">Kód</TableData>
-                <TableData tag="th">Klient</TableData>
-                <TableData tag="th">Predmet</TableData>
-                <TableData tag="th">Kód</TableData>
-                <TableData tag="th">Klient</TableData>
-                <TableData tag="th">Stav</TableData>
-                <TableData tag="th">Konečná cena</TableData>
-                <TableData tag="th"/>
-            </TableWrapper>
+            <AppTableWrapper wrapper="thead">
+                <AppTableData tag="th">Meno klienta</AppTableData>
+                <AppTableData tag="th">ID</AppTableData>
+                <AppTableData tag="th">Predmet</AppTableData>
+                <AppTableData tag="th">Predmet</AppTableData>
+                <AppTableData tag="th">ID</AppTableData>
+                <AppTableData tag="th">Predmet</AppTableData>
+                <AppTableData tag="th">Predmet</AppTableData>
+                <AppTableData tag="th"/>
+            </AppTableWrapper>
 
-            <TableWrapper wrapper="tbody">
-                <TableRow v-for="data in filteredData" :key="data.id">
-                    <TableData class="app-table-data-primary" tag="td">{{ data.title.slice( 0, 20 ) }}</TableData>
-                    <TableData class="app-table-data-secondary" tag="td">{{ data.id }}</TableData>
-                    <TableData tag="td">{{ data.userId }}</TableData>
-                    <TableData tag="td">{{ data.userId }}</TableData>
-                    <TableData tag="td">{{ data.completed }}</TableData>
-                    <TableData tag="td">14.44</TableData>
-                    <TableData tag="td">{{ data.completed }}</TableData>
-                    <TableData tag="td">14.44</TableData>
-                    <TableData tag="td" edit>
-                        <RouterLink :to="{ name: 'BusinessCasesEdit', params: {id: data.id} }">
+            <AppTableWrapper wrapper="tbody">
+                <AppTableRow v-for="data in filteredData" :key="data.id">
+                    <AppTableData tag="td" primary-data>{{ data.title.slice( 0, 18 ) }}</AppTableData>
+                    <AppTableData tag="td" secondary-data>22-2222</AppTableData>
+                    <AppTableData tag="td" secondary-data>Matej</AppTableData>
+                    <AppTableData tag="td">Matej</AppTableData>
+                    <AppTableData tag="td">22-2222</AppTableData>
+                    <AppTableData tag="td">Predmet</AppTableData>
+                    <AppTableData tag="td">Predmet</AppTableData>
+                    <AppTableData tag="td" edit-data>
+                        <RouterLink :to="{ name: 'BusinessCasesEdit', params: { id: data.id } }">
                             <AppIcon icon-name="Edit"/>
                         </RouterLink>
-                    </TableData>
-                </TableRow>
-            </TableWrapper>
+                    </AppTableData>
+                </AppTableRow>
+            </AppTableWrapper>
         </AppTable>
     </section>
 </template>
 
 <script>
-import AppTableMetas from "@/components/Table/AppTableMetas";
-import AppTable from "@/components/Table/AppTable";
-import AppIcon from "@/components/AppIcon";
-import TableWrapper from "@/components/Table/TableWrapper";
-import TableRow from "@/components/Table/TableRow";
-import TableData from "@/components/Table/TableData";
-import axios from "axios";
+// Components
+import AppIcon from '@/components/AppIcon';
+import AppTableMetas from '@/components/Table/AppTableMetas';
+import AppTable from '@/components/Table/AppTable';
+import AppTableWrapper from '@/components/Table/AppTableWrapper';
+import AppTableRow from '@/components/Table/AppTableRow';
+import AppTableData from '@/components/Table/AppTableData';
+
+// Libs
+import axios from 'axios';
 
 export default {
     components: {
+        AppIcon,
         AppTableMetas,
         AppTable,
-        AppIcon,
-        TableWrapper,
-        TableRow,
-        TableData
+        AppTableWrapper,
+        AppTableRow,
+        AppTableData,
     },
 
     data() {
@@ -67,12 +68,6 @@ export default {
             .then( response => this.cases = response.data );
     },
 
-    methods: {
-        setFilterText( text ) {
-            this.filterText = text;
-        }
-    },
-
     computed: {
         filteredData() {
             if ( this.filterText ) {
@@ -82,7 +77,13 @@ export default {
             } else {
                 return this.cases;
             }
-        }
+        },
+    },
+
+    methods: {
+        setFilterText( text ) {
+            this.filterText = text;
+        },
     },
 }
 </script>

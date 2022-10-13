@@ -1,7 +1,11 @@
 .container {
-  padding: rem(84) rem(20) rem(106) rem(20);
+  padding: rem(84) rem(20) rem(102) rem(20);
   width: 100%;
   overflow: hidden;
+
+  @include breakpointUp($md) {
+    padding: rem(84) rem(20) rem(112) rem(20);
+  }
 
   @include breakpointUp($lg) {
     padding: 0 rem(20) rem(80) rem(20);

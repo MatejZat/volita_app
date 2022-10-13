@@ -1,5 +1,5 @@
 <template>
-    <ul class="menu-nav" :class="{ 'menu-nav-vertical' : vertical }">
+    <ul class="menu-nav" :class="{ 'menu-nav-horizontal' : horizontal }">
         <slot/>
     </ul>
 </template>
@@ -7,7 +7,7 @@
 <script>
 export default {
     props: {
-        vertical: Boolean,
+        horizontal: Boolean,
     },
 }
 </script>
@@ -17,7 +17,7 @@ export default {
     display: flex;
     flex-direction: column;
 
-    &-vertical {
+    &-horizontal {
         flex-direction: row;
 
         > li:not(:last-child) {
@@ -105,18 +105,16 @@ export default {
             }
 
             .menu-nav-dropdown {
-                padding-left: rem(36);
-                padding-right: rem(20);
                 max-height: 0;
                 overflow: hidden;
                 transition: max-height $mobileBarSpeed;
 
-                @include breakpointUp($md) {
+                .ripple-button {
                     padding-left: rem(42);
-                }
 
-                @include breakpointUp($lg) {
-                    padding-left: rem(53);
+                    @include breakpointUp($lg) {
+                        padding-left: rem(53);
+                    }
                 }
             }
         }

@@ -1,8 +1,8 @@
 <template>
     <div class="app-breadcrumbs font-nunito">
         <div v-for="breadcrumb in breadcrumbs" :key="breadcrumb.id">
-            <span v-if="breadcrumb.meta.breadcrumbTitle">
-                {{ breadcrumb.meta.breadcrumbTitle }}
+            <span v-if="breadcrumb.meta.title">
+                {{ breadcrumb.meta.title }}
             </span>
         </div>
     </div>

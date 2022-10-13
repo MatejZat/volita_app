@@ -4,33 +4,23 @@
             <MobileBarMenuUser/>
 
             <MenuNav>
-                <MenuNavItem title="Nástenka" icon-name="Home" route-name="Dashboard"/>
+                <MenuNavItem title="Nástenka" icon-name="Clipboard" route-name="Dashboard"/>
                 <MenuNavItem title="Kalendár" icon-name="Calendar" route-name="Calendar"/>
 
-                <MenuNavItem v-slot="slotProps" title="Adresár" icon-name="Home" is-dropdown>
-                    <MenuNavDropdownItem @click="slotProps.closeDropdown" route-name="Dashboard">Klienti
-                    </MenuNavDropdownItem>
-                    <MenuNavDropdownItem @click="slotProps.closeDropdown" route-name="Calendar">Kontaktné osoby
-                    </MenuNavDropdownItem>
-                    <MenuNavDropdownItem @click="slotProps.closeDropdown" route-name="Dashboard">Lead
-                    </MenuNavDropdownItem>
+                <MenuNavItem v-slot="slotProps" title="Adresár" icon-name="Folder" is-dropdown>
+                    <MenuNavDropdownItem @click="slotProps.closeDropdown" title="Klienti" route-name="Dashboard"/>
+                    <MenuNavDropdownItem @click="slotProps.closeDropdown" title="Kontaktné osoby" route-name="Calendar"/>
+                    <MenuNavDropdownItem @click="slotProps.closeDropdown" title="Lead" route-name="Dashboard"/>
                 </MenuNavItem>
 
-                <MenuNavItem v-slot="slotProps" title="Obchod" icon-name="Calendar" is-dropdown>
-                    <MenuNavDropdownItem @click="slotProps.closeDropdown" route-name="Calendar">Obchodná nástenka
-                    </MenuNavDropdownItem>
-                    <MenuNavDropdownItem @click="slotProps.closeDropdown" route-name="BusinessCases">Obchodné prípady
-                    </MenuNavDropdownItem>
-                    <MenuNavDropdownItem @click="slotProps.closeDropdown" route-name="Calendar">Ponuky
-                    </MenuNavDropdownItem>
-                    <MenuNavDropdownItem @click="slotProps.closeDropdown" route-name="Dashboard">Objednávky
-                    </MenuNavDropdownItem>
-                    <MenuNavDropdownItem @click="slotProps.closeDropdown" route-name="Calendar">Projekty
-                    </MenuNavDropdownItem>
-                    <MenuNavDropdownItem @click="slotProps.closeDropdown" route-name="Dashboard">Produkty
-                    </MenuNavDropdownItem>
-                    <MenuNavDropdownItem @click="slotProps.closeDropdown" route-name="Calendar">Cenníky
-                    </MenuNavDropdownItem>
+                <MenuNavItem v-slot="slotProps" title="Obchod" icon-name="Dollar" is-dropdown>
+                    <MenuNavDropdownItem @click="slotProps.closeDropdown" title="Obchodná nástenka" route-name="Calendar"/>
+                    <MenuNavDropdownItem @click="slotProps.closeDropdown" title="Obchodné prípady" route-name="BusinessCases"/>
+                    <MenuNavDropdownItem @click="slotProps.closeDropdown" title="Ponuky" route-name="Calendar"/>
+                    <MenuNavDropdownItem @click="slotProps.closeDropdown" title="Objednávky" route-name="Dashboard"/>
+                    <MenuNavDropdownItem @click="slotProps.closeDropdown" title="Projekty" route-name="Calendar"/>
+                    <MenuNavDropdownItem @click="slotProps.closeDropdown" title="Produkty" route-name="Dashboard"/>
+                    <MenuNavDropdownItem @click="slotProps.closeDropdown" title="Cenníky" route-name="Calendar"/>
                 </MenuNavItem>
             </MenuNav>
 

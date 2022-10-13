@@ -8,23 +8,22 @@
         <div class="sidebar-content">
             <MenuNav>
                 <MenuNavItem title="Nástenka" icon-name="Clipboard" route-name="Dashboard" :is-menu-expanded="menuExpanded"/>
-                <MenuNavItem title="Kalendár" icon-name="Calendar" route-name="Calendar"
-                             :is-menu-expanded="menuExpanded"/>
+                <MenuNavItem title="Kalendár" icon-name="Calendar" route-name="Calendar" :is-menu-expanded="menuExpanded"/>
 
                 <MenuNavItem title="Adresár" icon-name="Folder" :is-menu-expanded="menuExpanded" is-dropdown>
-                    <MenuNavDropdownItem route-name="Dashboard">Klienti</MenuNavDropdownItem>
-                    <MenuNavDropdownItem route-name="Calendar">Kontaktné osoby</MenuNavDropdownItem>
-                    <MenuNavDropdownItem route-name="Dashboard">Lead</MenuNavDropdownItem>
+                    <MenuNavDropdownItem title="Klienti" route-name="Dashboard">Klienti</MenuNavDropdownItem>
+                    <MenuNavDropdownItem title="Kontaktné osoby" route-name="Calendar">Kontaktné osoby</MenuNavDropdownItem>
+                    <MenuNavDropdownItem title="Lead" route-name="Dashboard">Lead</MenuNavDropdownItem>
                 </MenuNavItem>
 
                 <MenuNavItem title="Obchod" icon-name="Dollar" :is-menu-expanded="menuExpanded" is-dropdown>
-                    <MenuNavDropdownItem route-name="Calendar">Obchodná nástenka</MenuNavDropdownItem>
-                    <MenuNavDropdownItem route-name="BusinessCases">Obchodné prípady</MenuNavDropdownItem>
-                    <MenuNavDropdownItem route-name="Calendar">Ponuky</MenuNavDropdownItem>
-                    <MenuNavDropdownItem route-name="Dashboard">Objednávky</MenuNavDropdownItem>
-                    <MenuNavDropdownItem route-name="Calendar">Projekty</MenuNavDropdownItem>
-                    <MenuNavDropdownItem route-name="Dashboard">Produkty</MenuNavDropdownItem>
-                    <MenuNavDropdownItem route-name="Calendar">Cenníky</MenuNavDropdownItem>
+                    <MenuNavDropdownItem title="Obchodná nástenka" route-name="Calendar"/>
+                    <MenuNavDropdownItem title="Obchodné prípady" route-name="BusinessCases"/>
+                    <MenuNavDropdownItem title="Ponuky" route-name="Calendar"/>
+                    <MenuNavDropdownItem title="Objednávky" route-name="Dashboard"/>
+                    <MenuNavDropdownItem title="Projekty" route-name="Calendar"/>
+                    <MenuNavDropdownItem title="Produkty" route-name="Dashboard"/>
+                    <MenuNavDropdownItem title="Cenníky" route-name="Calendar"/>
                 </MenuNavItem>
             </MenuNav>
         </div>

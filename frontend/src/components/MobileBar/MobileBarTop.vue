@@ -1,7 +1,7 @@
 <template>
     <header class="top-bar">
         <div class="top-bar-content">
-            <AppButton @click="goBack" ripple>
+            <AppButton @click="routeBack" ripple>
                 <AppIcon icon-name="ChevLeft"/>
             </AppButton>
 
@@ -26,16 +26,16 @@ export default {
 
     computed: {
         currentPageName() {
-            return this.$route.meta.breadcrumbTitle;
+            return this.$route.meta.title;
         }
     },
 
     methods: {
         openMobileMenu() {
-            this.$emit( 'iconHandleClick' );
+            this.$emit( 'iconMenuClick' );
         },
 
-        goBack() {
+        routeBack() {
             return this.$router.go( -1 );
         }
     },

@@ -27,7 +27,7 @@ const routes = [
     {
         path: '/',
         name: 'Dashboard',
-        meta: { breadcrumbTitle: 'Nástenka' },
+        meta: { title: 'Nástenka' },
         component: Index
     },
 
@@ -37,7 +37,7 @@ const routes = [
     {
         path: '/kalendar',
         name: 'Calendar',
-        meta: { breadcrumbTitle: 'Kalendár' },
+        meta: { title: 'Kalendár' },
         component: function () {
             return import(/* webpackChunkName: "calendar" */ '../views/app/Calendar.vue')
         }
@@ -47,7 +47,7 @@ const routes = [
 
     {
         path: '/obchodne-pripady',
-        meta: { breadcrumbTitle: 'Obchodné prípady' },
+        meta: { title: 'Obchodné prípady' },
         children: [
             {
                 path: '',
@@ -59,7 +59,7 @@ const routes = [
             {
                 path: '/obchodne-pripady/:id/edit',
                 name: 'BusinessCasesEdit',
-                meta: { breadcrumbTitle: 'Nazov' },
+                meta: { title: 'Nazov' },
                 component: function () {
                     return import(/* webpackChunkName: "business-cases" */ '../views/app/BusinessCases/CasesEdit.vue')
                 },
@@ -85,6 +85,7 @@ router.beforeEach((to, from, next) => {
     } else {
         store.commit('setLayout', 'app');
     }
+
     next(true);
 });
 

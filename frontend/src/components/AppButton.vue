@@ -1,17 +1,18 @@
 <template>
-    <button v-if="ripple" @click="rippleEffect" ref="rippleButton" class="ripple-button" :class="rippleEffectColor">
+    <button v-if="ripple" @click="rippleEffect" ref="rippleButton" class="ripple-button" :class="rippleEffectColor" :title="buttonTitle">
         <slot/>
     </button>
 
-    <button v-else-if="submit" class="font-nunito" :class="[buttonTypeClass, buttonStretchClass]" type="submit">
+    <button v-else-if="submit" class="font-nunito" :class="[buttonTypeClass, buttonStretchClass]" type="submit" :title="buttonTitle">
         <slot/>
     </button>
 
     <RouterLink v-else :to="{ name: routeName }" class="font-nunito" :class="[buttonTypeClass, buttonStretchClass]">
         <AppIcon v-if="iconName" :icon-name="iconName"/>
+
         <span>
-      <slot/>
-    </span>
+          <slot/>
+        </span>
     </RouterLink>
 </template>
 
@@ -24,6 +25,7 @@ export default {
         type: String,
         routeName: String,
         iconName: String,
+        buttonTitle: String,
         ripple: Boolean,
         rippleWhite: Boolean,
         ghost: Boolean,
