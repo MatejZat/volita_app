@@ -1,5 +1,5 @@
 <template>
-    <div :style="{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`}" class="app-form-wrapper">
+    <div :style="{ gridTemplateColumns: `repeat(${cols}, minmax(0, 1fr))`}" class="form-input-group">
         <slot/>
     </div>
 </template>
@@ -13,8 +13,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.app-form-wrapper {
-    margin-bottom: rem(10);
+.form-input-group {
     display: grid;
     gap: 10px;
 

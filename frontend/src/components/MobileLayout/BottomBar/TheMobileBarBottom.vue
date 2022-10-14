@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import MobileBarBottomItem from '@/components/MobileBar/MobileBarBottomItem';
-import MobileBarBottomItemWave from '@/components/MobileBar/MobileBarBottomItemWave';
+import MobileBarBottomItem from '@/components/MobileLayout/BottomBar/MobileBarBottomItem';
+import MobileBarBottomItemWave from '@/components/MobileLayout/BottomBar/MobileBarBottomItemWave';
 
 export default {
     components: {

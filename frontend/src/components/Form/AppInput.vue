@@ -3,7 +3,7 @@
         <label v-if="label" class="font-nunito" :class="{ 'required' : required }">{{ label }}</label>
 
         <div v-if="textarea" class="input-container">
-            <textarea :rows="textareaRows"></textarea>
+            <textarea :rows="rows"></textarea>
         </div>
 
         <div v-else class="input-container">
@@ -11,11 +11,19 @@
                 <AppIcon :icon-name="iconName"/>
             </figure>
 
-            <input @input="emitValue($event)" v-model="inputText" type="text" :placeholder="placeholder" :required="required" class="font-nunito" :class="[inputTypeClass, inputHasIcon]">
+            <input
+                @input="emitValue($event)"
+                v-model="inputText"
+                :type="type"
+                :placeholder="placeholder"
+                :required="required"
+                class="font-nunito"
+                :class="[ inputTypeClass, inputHasIcon ]"
+            >
 
-            <div v-if="!closeButton" v-show="inputText" @click="removeValue" class="input-icon-remove">
+            <figure v-if="removeButton" v-show="inputText" @click="removeValue" class="input-icon-remove">
                 <AppIcon icon-name="X"/>
-            </div>
+            </figure>
         </div>
     </div>
 </template>
@@ -26,14 +34,14 @@ import AppIcon from '@/components/AppIcon';
 export default {
     props: {
         label: String,
-        placeholder: String,
-        iconName: String,
         type: String,
-        textareaRows: Number,
-        width: Number,
+        placeholder: String,
+        color: String,
+        iconName: String,
+        rows: Number,
         required: Boolean,
         textarea: Boolean,
-        closeButton: Boolean
+        removeButton: Boolean
     },
 
     data() {
@@ -48,7 +56,7 @@ export default {
 
     computed: {
         inputTypeClass() {
-            return `${ this.type }-input`;
+            return `${ this.color }-input`;
         },
 
         inputHasIcon() {
@@ -62,7 +70,7 @@ export default {
         },
 
         removeValue() {
-            if( this.inputText ) {
+            if ( this.inputText ) {
                 this.inputText = '';
                 this.$emit( 'inputFill', '' );
             }

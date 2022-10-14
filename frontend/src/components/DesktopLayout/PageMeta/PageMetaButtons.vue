@@ -1,11 +1,15 @@
 <template>
-    <div class="desktop-bar-metas-arrows">
-        <AppButton @click="goBack" noStyle>
+    <div class="meta-buttons">
+        <AppButton @click="goBack" no-style>
             <AppIcon icon-name="ArrowLeft"/>
         </AppButton>
 
-        <AppButton @click="goForward" noStyle>
+        <AppButton @click="goForward" no-style>
             <AppIcon icon-name="ArrowRight"/>
+        </AppButton>
+
+        <AppButton @click="refresh" no-style>
+            <AppIcon icon-name="Refresh"/>
         </AppButton>
     </div>
 </template>
@@ -25,6 +29,10 @@ export default {
             return this.$router.go( 1 );
         },
 
+        refresh() {
+            window.location.reload();
+        },
+
         goBack() {
             return this.$router.go( -1 );
         }
@@ -33,11 +41,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.desktop-bar-metas-arrows {
+.meta-buttons {
     display: flex;
 
-    button:first-child {
-        margin-right: rem(10);
+    button:nth-child(2) {
+        margin-left: rem(10);
+        margin-right: rem(20);
     }
 }
 </style>

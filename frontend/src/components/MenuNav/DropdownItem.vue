@@ -1,7 +1,7 @@
 <template>
-    <li class="menu-nav-dropdown-item">
+    <li class="dropdown-item">
         <AppButton @click="handleClick" no-style ripple-white>
-            <span class="font-nunito">{{ title }}</span>
+            <span>{{ text }}</span>
         </AppButton>
     </li>
 </template>
@@ -11,7 +11,7 @@ import AppButton from '@/components/AppButton';
 
 export default {
     props: {
-        title: String,
+        text: String,
         routeName: String,
     },
 
@@ -28,13 +28,17 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.menu-nav-dropdown-item {
+<style lang="scss">
+.dropdown-item {
     span {
-        padding: rem(8) 0;
+        padding: rem(10) 0;
         display: inline-block;
-        font-size: rem(12);
+        font-size: rem(13);
         color: $primaryContrast;
+
+        @include breakpointUp($xs) {
+            font-size: rem(16);
+        }
 
         @include breakpointUp($md) {
             font-size: rem(18);
@@ -49,4 +53,5 @@ export default {
         text-align: left;
     }
 }
+
 </style>

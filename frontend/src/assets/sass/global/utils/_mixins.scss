@@ -13,8 +13,8 @@
 
 // Buttons generator
 @mixin buttonGenerator($color) {
-  $hoverColorIntense: 6%;
-  $focusColorIntense: 8%;
+  $hoverColorIntense: 10%;
+  $focusColorIntense: 12%;
 
   background: $color;
 
@@ -27,6 +27,7 @@
   }
 
   &-ghost {
+    padding: rem(8) rem(16);
     color: $color;
     border: 2px solid $color;
     background: transparent;
@@ -41,18 +42,5 @@
       color: lighten($color, $focusColorIntense);
       border: 2px solid lighten($color, $focusColorIntense);
     }
-  }
-}
-
-// Input generator
-@mixin inputGenerator($color) {
-  border: 2px solid rgba($color, 0.25);
-
-  &:hover {
-    border-color: rgba($color, 0.5);
-  }
-
-  &:focus {
-    border-color: $color;
   }
 }

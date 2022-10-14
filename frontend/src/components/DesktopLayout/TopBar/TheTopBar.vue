@@ -1,23 +1,23 @@
 <template>
     <header class="top-bar">
         <div class="top-bar-content">
-            <DesktopBarTopLogo/>
-            <DesktopBarTopSearch/>
-            <DesktopBarTopUser/>
+            <TopBarLogo/>
+            <TopBarSearch/>
+            <TopBarUser/>
         </div>
     </header>
 </template>
 
 <script>
-import DesktopBarTopLogo from '@/components/DesktopBar/DesktopBarTop/DesktopBarTopLogo';
-import DesktopBarTopSearch from '@/components/DesktopBar/DesktopBarTop/DesktopBarTopSearch';
-import DesktopBarTopUser from '@/components/DesktopBar/DesktopBarTop/DesktopBarTopUser';
+import TopBarLogo from '@/components/DesktopLayout/TopBar/TopBarLogo';
+import TopBarSearch from '@/components/DesktopLayout/TopBar/TopBarSearch';
+import TopBarUser from '@/components/DesktopLayout/TopBar/TopBarUser';
 
 export default {
     components: {
-        DesktopBarTopLogo,
-        DesktopBarTopUser,
-        DesktopBarTopSearch
+        TopBarLogo,
+        TopBarUser,
+        TopBarSearch
     },
 }
 </script>

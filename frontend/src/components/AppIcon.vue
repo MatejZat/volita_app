@@ -24,6 +24,7 @@ import IconX from '@/components/Icons/IconX';
 import IconClipboard from '@/components/Icons/IconClipboard';
 import IconDollar from '@/components/Icons/IconDollar';
 import IconFolder from '@/components/Icons/IconFolder';
+import IconRefresh from '@/components/Icons/IconRefresh';
 
 export default {
     props: {
@@ -51,8 +52,8 @@ export default {
         IconX,
         IconClipboard,
         IconDollar,
-        IconFolder
-
+        IconFolder,
+        IconRefresh
     },
 
     computed: {

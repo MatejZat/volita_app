@@ -1,11 +1,11 @@
 <template>
     <div class="mobile-wrapper">
-        <MobileBarMenu v-show="isMenuOpen"/>
+        <TheMobileBarMenu v-show="isMenuOpen"/>
 
         <div class="mobile-page-wrapper" :class="{ 'mobile-menu-open' : isMenuOpen }">
             <div v-show="isMenuOpen" @click="toggleMobileMenu" class="overlay"/>
 
-            <MobileBarTop @iconMenuClick="toggleMobileMenu"/>
+            <TheMobileBarTop @iconMenuClick="toggleMobileMenu"/>
 
             <main>
                 <div class="container">
@@ -13,21 +13,21 @@
                 </div>
             </main>
 
-            <MobileBarBottom/>
+            <TheMobileBarBottom/>
         </div>
     </div>
 </template>
 
 <script>
-import MobileBarTop from '@/components/MobileBar/MobileBarTop';
-import MobileBarBottom from '@/components/MobileBar/MobileBarBottom';
-import MobileBarMenu from '@/components/MobileBar/MobileBarMenu';
+import TheMobileBarTop from '@/components/MobileLayout/TheMobileBarTop';
+import TheMobileBarBottom from '@/components/MobileLayout/BottomBar/TheMobileBarBottom';
+import TheMobileBarMenu from '@/components/MobileLayout/MenuBar/TheMobileBarMenu';
 
 export default {
     components: {
-        MobileBarTop,
-        MobileBarBottom,
-        MobileBarMenu
+        TheMobileBarTop,
+        TheMobileBarBottom,
+        TheMobileBarMenu
     },
 
     computed: {

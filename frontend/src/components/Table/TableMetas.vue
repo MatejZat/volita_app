@@ -2,7 +2,7 @@
     <header class="app-table-metas">
         <div class="app-table-metas-content">
             <div class="filter-input-container">
-                <AppInput @inputFill="handleInput" placeholder="Prehľadávať výsledky" icon-name="Sliders"/>
+                <AppInput @inputFill="handleInput" placeholder="Prehľadávať výsledky" icon-name="Sliders" remove-button/>
             </div>
 
             <aside class="app-table-metas-buttons">

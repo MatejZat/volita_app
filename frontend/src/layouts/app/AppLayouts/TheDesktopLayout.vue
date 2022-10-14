@@ -1,9 +1,9 @@
 <template>
-    <DesktopBarTop/>
-    <DesktopBarMenu @menuExpand="handleExpand"/>
+    <TheTopBar/>
+    <TheMenuBar @handleMenuExpansion="handleMenuExpansion"/>
 
     <main ref="websitePage">
-        <DesktopBarMetas />
+        <ThePageMeta />
 
         <div class="container">
             <slot/>
@@ -12,19 +12,19 @@
 </template>
 
 <script>
-import DesktopBarTop from '@/components/DesktopBar/DesktopBarTop/DesktopBarTop';
-import DesktopBarMenu from '@/components/DesktopBar/DesktopBarMenu';
-import DesktopBarMetas from '@/components/DesktopBar/DesktopBarMetas/DesktopBarMetas';
+import TheTopBar from '@/components/DesktopLayout/TopBar/TheTopBar';
+import TheMenuBar from '@/components/DesktopLayout/TheMenuBar';
+import ThePageMeta from '@/components/DesktopLayout/PageMeta/ThePageMeta';
 
 export default {
     components: {
-        DesktopBarTop,
-        DesktopBarMenu,
-        DesktopBarMetas
+        TheTopBar,
+        TheMenuBar,
+        ThePageMeta
     },
 
     methods: {
-        handleExpand( pixels ) {
+        handleMenuExpansion( pixels ) {
             const websitePage = this.$refs.websitePage;
             websitePage.style.paddingLeft = pixels + 'px';
         }

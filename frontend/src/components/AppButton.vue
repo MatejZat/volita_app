@@ -1,17 +1,43 @@
 <template>
-    <button v-if="noStyle" @click="rippleEffect" ref="rippleButton" class="font-nunito ripple-button" :class="rippleEffectColor" :type="type">
+    <button
+        v-if="noStyle"
+        @click="rippleEffect"
+        ref="rippleButton"
+        class="font-nunito ripple-button"
+        :class="rippleEffectColor"
+    >
         <slot/>
     </button>
 
-    <button v-else @click="rippleEffect" ref="rippleButton" class="font-nunito ripple-button" :class="rippleEffectColor">
-        <RouterLink :to="{ name: routeName }" :class="[buttonTypeClass, buttonStretchClass, buttonIconClass]">
-            <AppIcon v-if="iconName" :icon-name="iconName"/>
+    <button
+        v-else-if="submit"
+        @click="rippleEffect"
+        ref="rippleButton"
+        class="font-nunito ripple-button"
+        :class="[ buttonTypeClass, buttonStretchClass, buttonIconClass, rippleEffectColor ]"
+        type="submit"
+    >
+        <AppIcon v-if="iconName" :icon-name="iconName"/>
 
-            <span>
-                <slot/>
-            </span>
-        </RouterLink>
+        <span>
+            <slot/>
+        </span>
     </button>
+
+    <RouterLink
+        v-else
+        @click="rippleEffect"
+        ref="rippleButton"
+        :to="{ name: routeName }"
+        class="font-nunito ripple-button"
+        :class="[ buttonTypeClass, buttonStretchClass, buttonIconClass, rippleEffectColor ]"
+    >
+        <AppIcon v-if="iconName" :icon-name="iconName"/>
+
+        <span>
+            <slot/>
+        </span>
+    </RouterLink>
 </template>
 
 <script>
@@ -23,7 +49,7 @@ export default {
         color: String,
         routeName: String,
         iconName: String,
-        type: String,
+        submit: Boolean,
         noStyle: Boolean,
         rippleWhite: Boolean,
         ghost: Boolean,
@@ -40,7 +66,7 @@ export default {
         },
 
         buttonTypeClass() {
-            return `${this.color}-button${this.isGhost}`;
+            return `${ this.color }-button${ this.isGhost }`;
         },
 
         buttonIconClass() {
@@ -58,7 +84,7 @@ export default {
 
     methods: {
         rippleEffect( event ) {
-            const button = this.$refs.rippleButton;
+            const button = this.$refs.rippleButton.$el || this.$refs.rippleButton;
             const circle = document.createElement( 'span' );
             const diameter = Math.max( circle.clientWidth, circle.clientHeight );
             const radius = diameter / 2;
@@ -68,7 +94,7 @@ export default {
             circle.style.top = `${ event.clientY - ( button.getBoundingClientRect().top + radius ) }px`;
             circle.classList.add( 'ripple' );
 
-            circle.addEventListener('animationend', () => circle.remove());
+            circle.addEventListener( 'animationend', () => circle.remove() );
 
             button.appendChild( circle );
         }
@@ -78,7 +104,6 @@ export default {
 
 <style lang="scss">
 .ripple-button {
-    width: 100%;
     position: relative;
     display: block;
     border-radius: 4px;
@@ -105,7 +130,7 @@ export default {
         transform: scale(0);
         z-index: 1;
 
-        animation: ripple 500ms ease-out;
+        animation: ripple 400ms ease-out;
     }
 
     @keyframes ripple {
@@ -125,14 +150,14 @@ export default {
 }
 
 .button {
-    padding: rem(8) rem(14);
+    padding: rem(10) rem(16);
     display: inline-flex;
     justify-content: center;
     align-items: center;
     position: relative;
     z-index: 1;
     overflow: hidden;
-    font-size: $font12;
+    font-size: $fontLittle;
     color: $white;
     border-radius: 6px;
     transition: background-color $defaultSpeed;

@@ -59,7 +59,7 @@ const routes = [
             {
                 path: '/obchodne-pripady/:id/edit',
                 name: 'BusinessCasesEdit',
-                meta: { title: 'Nazov' },
+                meta: { title: 'ITEM' },
                 component: function () {
                     return import(/* webpackChunkName: "business-cases" */ '../views/app/BusinessCases/CasesEdit.vue')
                 },

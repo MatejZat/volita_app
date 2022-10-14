@@ -22,6 +22,10 @@ export default {
 </script>
 
 <style lang="scss">
+th {
+    padding: rem(12) rem(20) !important;
+}
+
 .app-table-data {
     padding: rem(8) rem(20);
     display: table-cell;
@@ -81,7 +85,7 @@ export default {
         }
 
         svg {
-            width: rem(18);
+            width: rem(16);
         }
     }
 }

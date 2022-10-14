@@ -1,9 +1,9 @@
 <template>
     <footer>
         <MenuNav horizontal>
-            <MenuNavItem title="Hlásenia" icon-name="Bell" small/>
-            <MenuNavItem title="Nastavenia" icon-name="Settings" small/>
-            <MenuNavItem title="Odhlásiť sa" icon-name="Logout" small/>
+            <MenuNavItem text="Hlásenia" icon-name="Bell" text-small/>
+            <MenuNavItem text="Nastavenia" icon-name="Settings" text-small/>
+            <MenuNavItem text="Odhlásiť sa" icon-name="Logout" text-small/>
         </MenuNav>
     </footer>
 </template>
