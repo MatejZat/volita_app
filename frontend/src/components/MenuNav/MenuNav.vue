@@ -26,7 +26,7 @@ export default {
         }
     }
 
-    .menu-nav-item {
+    &-item {
         max-width: rem(210);
 
         @include breakpointUp($xs) {
@@ -34,32 +34,22 @@ export default {
         }
 
         .link-wrapper {
-            padding: 0 rem(20);
-            display: inline-flex;
+            padding: rem(10) rem(20);
+            display: flex;
             align-items: center;
             white-space: nowrap;
 
-            @include breakpointDown($lg) {
-                padding: 0;
-            }
-
-            .link {
-                padding: rem(10) 0;
-                display: flex;
-                align-items: center;
-
-                span {
-                    margin-left: rem(10);
-                }
+            .link-text {
+                margin-left: rem(10);
             }
         }
 
-        .icon-wrapper svg {
+        .link-icon svg {
             @include breakpointDown($lg) {
                 width: rem(32);
             }
 
-            @include breakpointDown($xs) {
+            @include breakpointDown($md) {
                 width: rem(22);
             }
         }
@@ -80,15 +70,17 @@ export default {
 
         &-dropdown {
             @extend .menu-nav-item;
-            will-change: max-height;
 
             .link-wrapper {
-                display: flex;
-                justify-content: space-between;
-
                 .icon-dropdown {
                     margin-left: rem(20);
+                    position: absolute;
+                    right: rem(10);
                     transition: transform $mobileBarSpeed;
+
+                    @include breakpointUp($lg) {
+                        right: rem(20);
+                    }
 
                     svg {
                         width: rem(18);
@@ -104,17 +96,16 @@ export default {
                 }
             }
 
+
             .menu-nav-dropdown {
                 max-height: 0;
+                opacity: 0;
                 overflow: hidden;
-                transition: max-height $mobileBarSpeed;
+                will-change: max-height;
+                transition: all $mobileBarSpeed;
 
                 .ripple-button {
-                    padding-left: rem(42);
-
-                    @include breakpointUp($lg) {
-                        padding-left: rem(53);
-                    }
+                    padding-left: rem(53);
                 }
             }
         }
@@ -135,12 +126,10 @@ export default {
             top: 0;
             left: 100%;
             transform: translateY(10px);
-            opacity: 0;
             pointer-events: none;
             border-top-right-radius: 8px;
             border-bottom-right-radius: 8px;
             background: $primary;
-            transition: all $defaultSpeed;
 
             @include breakpointUp($lg) {
                 padding-left: 0;
@@ -154,20 +143,22 @@ export default {
         }
     }
 
-    .dropdown-open .icon-dropdown {
-        transform: rotate(-90deg) !important;
+    .dropdown-open {
+        .menu-nav-dropdown {
+            opacity: 1;
+        }
+
+        .icon-dropdown {
+            transform: rotate(-90deg) !important;
+        }
     }
 
     .text-small {
         .link-wrapper {
             padding: 0;
-
-            .link {
-                padding: 0;
-            }
         }
 
-        .icon-wrapper svg {
+        .link-icon svg {
             width: rem(16);
 
             @include breakpointUp($md) {

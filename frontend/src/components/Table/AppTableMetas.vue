@@ -6,7 +6,7 @@
             </div>
 
             <aside class="app-table-metas-buttons">
-                <AppButton @click="handleClick" type="primary" icon-name="Plus">{{ buttonText }}</AppButton>
+                <AppButton @click="handleClick" color="primary" icon-name="Plus" ripple-white>{{ buttonText }}</AppButton>
             </aside>
         </div>
     </header>

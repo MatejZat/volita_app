@@ -23,18 +23,5 @@ export default {
     @include breakpointUp($lg) {
         border-radius: 12px;
     }
-
-    thead {
-        display: table-header-group;
-        background: $primaryContrast;
-        
-        @include breakpointDown($lg) {
-            display: none;
-        }
-    }
-
-    tbody {
-        display: table-row-group;
-    }
 }
 </style>

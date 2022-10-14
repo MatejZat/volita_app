@@ -1,21 +1,21 @@
 <template>
     <li ref="menuNavItem" :class="[ textSizeClass, isDropdownClass ]">
-        <AppButton @click.stop="handleClick" class="link-wrapper" ripple ripple-white>
-            <div class="link">
-                <figure class="icon-wrapper">
+        <AppButton @click="handleClick" no-style ripple-white>
+            <span class="link-wrapper">
+                <span class="link-icon">
                     <AppIcon :icon-name="iconName"/>
-                </figure>
+                </span>
 
                 <transition name="fade">
-                    <span v-show="checkMenuExpanded" class="font-nunito">{{ title }}</span>
+                    <span class="link-text" v-show="checkMenuExpanded">{{ title }}</span>
                 </transition>
-            </div>
 
-            <transition name="fade">
-                <figure v-if="isDropdown && checkMenuExpanded" class="icon-dropdown">
-                    <AppIcon icon-name="ChevDown"/>
-                </figure>
-            </transition>
+                <transition name="fade">
+                    <span v-show="isDropdown && checkMenuExpanded" class="icon-dropdown">
+                        <AppIcon icon-name="ChevDown"/>
+                    </span>
+                </transition>
+            </span>
         </AppButton>
 
         <ul v-if="isDropdown" ref="menuDropdown" class="menu-nav-dropdown">
@@ -49,7 +49,7 @@ export default {
         },
 
         isMenuExpandedClass() {
-            return `is-${ this.isMenuExpanded }`;
+            return this.isMenuExpanded ? `is-${ this.isMenuExpanded }` : '';
         },
 
         textSizeClass() {

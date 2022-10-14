@@ -36,7 +36,5 @@ export default {
 main {
     padding-left: rem(64);
     width: 100%;
-    will-change: padding, width;
-    transition: padding $defaultSpeed;
 }
 </style>

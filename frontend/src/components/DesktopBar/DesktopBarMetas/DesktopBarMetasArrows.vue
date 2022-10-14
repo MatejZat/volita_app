@@ -1,10 +1,10 @@
 <template>
     <div class="desktop-bar-metas-arrows">
-        <AppButton @click="goBack" ripple>
+        <AppButton @click="goBack" noStyle>
             <AppIcon icon-name="ArrowLeft"/>
         </AppButton>
 
-        <AppButton @click="goForward" ripple>
+        <AppButton @click="goForward" noStyle>
             <AppIcon icon-name="ArrowRight"/>
         </AppButton>
     </div>

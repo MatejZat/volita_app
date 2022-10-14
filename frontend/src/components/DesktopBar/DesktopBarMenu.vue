@@ -97,7 +97,7 @@ aside {
     height: calc(100vh - 80px);
     position: fixed;
     bottom: 0;
-    z-index: 1000;
+    z-index: 2000;
     border-top-right-radius: 40px;
     border-bottom-right-radius: 8px;
     background: $primary;

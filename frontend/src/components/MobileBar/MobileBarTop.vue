@@ -1,13 +1,13 @@
 <template>
     <header class="top-bar">
         <div class="top-bar-content">
-            <AppButton @click="routeBack" ripple>
+            <AppButton @click="routeBack" no-style>
                 <AppIcon icon-name="ChevLeft"/>
             </AppButton>
 
             <h3>{{ currentPageName }}</h3>
 
-            <AppButton @click="openMobileMenu" ripple>
+            <AppButton @click="openMobileMenu" no-style>
                 <AppIcon icon-name="Menu"/>
             </AppButton>
         </div>

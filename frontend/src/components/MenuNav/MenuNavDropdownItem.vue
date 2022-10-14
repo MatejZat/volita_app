@@ -1,6 +1,6 @@
 <template>
     <li class="menu-nav-dropdown-item">
-        <AppButton @click="handleClick" :button-title="title" ripple ripple-white>
+        <AppButton @click="handleClick" no-style ripple-white>
             <span class="font-nunito">{{ title }}</span>
         </AppButton>
     </li>

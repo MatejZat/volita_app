@@ -3,7 +3,6 @@
         <MobileBarMenu v-show="isMenuOpen"/>
 
         <div class="mobile-page-wrapper" :class="{ 'mobile-menu-open' : isMenuOpen }">
-            <!-- Closing overlay when menu is open -->
             <div v-show="isMenuOpen" @click="toggleMobileMenu" class="overlay"/>
 
             <MobileBarTop @iconMenuClick="toggleMobileMenu"/>

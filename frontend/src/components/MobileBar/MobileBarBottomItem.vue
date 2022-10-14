@@ -1,12 +1,13 @@
 <template>
-    <AppButton ripple>
-        <RouterLink :to="{ name: routeName }" class="mobile-bottom-bar-item"
-                    :class="{ 'mobile-bottom-bar-item-main': isMain }">
-            <figure class="icon-wrapper">
-                <AppIcon :icon-name="iconName"/>
-            </figure>
+    <AppButton no-style>
+        <RouterLink :to="{ name: routeName }" class="mobile-bottom-bar-item" :class="{ 'mobile-bottom-bar-item-main': isMain }">
+            <div class="link-wrapper">
+                <figure class="icon-wrapper">
+                    <AppIcon :icon-name="iconName"/>
+                </figure>
 
-            <h6>{{ title }}</h6>
+                <h6>{{ title }}</h6>
+            </div>
         </RouterLink>
     </AppButton>
 </template>
@@ -32,17 +33,18 @@ export default {
 
 <style lang="scss" scoped>
 .mobile-bottom-bar-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    .link-wrapper {
+        padding: rem(2);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 
-    &-main {
-        .icon-wrapper {
-            padding: rem(10);
-            border-radius: 100%;
-            color: $white;
-            background: $primary;
-        }
+    &-main .icon-wrapper {
+        padding: rem(10);
+        border-radius: 100%;
+        color: $white;
+        background: $primary;
     }
 
     h6 {

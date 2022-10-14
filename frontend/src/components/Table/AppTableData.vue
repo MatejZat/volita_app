@@ -81,7 +81,7 @@ export default {
         }
 
         svg {
-            width: rem(20);
+            width: rem(18);
         }
     }
 }

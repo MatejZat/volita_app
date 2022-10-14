@@ -13,13 +13,13 @@
 
 // Buttons generator
 @mixin buttonGenerator($color) {
+  $hoverColorIntense: 6%;
+  $focusColorIntense: 8%;
+
   background: $color;
 
-  $hoverColorIntense: 8%;
-  $focusColorIntense: 10%;
-
-  &:before {
-    background: lighten($color, 8%);
+  &:hover {
+    background: lighten($color, $hoverColorIntense);
   }
 
   &:focus {

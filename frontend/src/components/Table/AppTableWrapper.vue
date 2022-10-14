@@ -13,6 +13,19 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+thead {
+    display: table-header-group;
+    background: $primaryContrast;
+
+    @include breakpointDown($lg) {
+        display: none;
+    }
+}
+
+tbody {
+    display: table-row-group;
+}
+
 .table-animation-enter-active,
 .table-animation-leave-active {
     transition: opacity $defaultSpeed;

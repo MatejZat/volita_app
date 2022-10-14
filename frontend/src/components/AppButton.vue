@@ -1,19 +1,17 @@
 <template>
-    <button v-if="ripple" @click="rippleEffect" ref="rippleButton" class="ripple-button" :class="rippleEffectColor" :title="buttonTitle">
+    <button v-if="noStyle" @click="rippleEffect" ref="rippleButton" class="font-nunito ripple-button" :class="rippleEffectColor" :type="type">
         <slot/>
     </button>
 
-    <button v-else-if="submit" class="font-nunito" :class="[buttonTypeClass, buttonStretchClass]" type="submit" :title="buttonTitle">
-        <slot/>
+    <button v-else @click="rippleEffect" ref="rippleButton" class="font-nunito ripple-button" :class="rippleEffectColor">
+        <RouterLink :to="{ name: routeName }" :class="[buttonTypeClass, buttonStretchClass, buttonIconClass]">
+            <AppIcon v-if="iconName" :icon-name="iconName"/>
+
+            <span>
+                <slot/>
+            </span>
+        </RouterLink>
     </button>
-
-    <RouterLink v-else :to="{ name: routeName }" class="font-nunito" :class="[buttonTypeClass, buttonStretchClass]">
-        <AppIcon v-if="iconName" :icon-name="iconName"/>
-
-        <span>
-          <slot/>
-        </span>
-    </RouterLink>
 </template>
 
 <script>
@@ -22,15 +20,14 @@ import AppIcon from '@/components/AppIcon';
 export default {
     props: {
         href: String,
-        type: String,
+        color: String,
         routeName: String,
         iconName: String,
-        buttonTitle: String,
-        ripple: Boolean,
+        type: String,
+        noStyle: Boolean,
         rippleWhite: Boolean,
         ghost: Boolean,
         stretch: Boolean,
-        submit: Boolean,
     },
 
     components: {
@@ -43,7 +40,11 @@ export default {
         },
 
         buttonTypeClass() {
-            return `${this.type}-button${this.isGhost}`;
+            return `${this.color}-button${this.isGhost}`;
+        },
+
+        buttonIconClass() {
+            return this.iconName ? 'button-icon' : '';
         },
 
         rippleEffectColor() {
@@ -52,7 +53,7 @@ export default {
 
         isGhost() {
             return this.ghost ? '-ghost' : '';
-        }
+        },
     },
 
     methods: {
@@ -67,9 +68,7 @@ export default {
             circle.style.top = `${ event.clientY - ( button.getBoundingClientRect().top + radius ) }px`;
             circle.classList.add( 'ripple' );
 
-            const ripple = button.querySelector( '.ripple' );
-
-            if ( ripple ) ripple.remove();
+            circle.addEventListener('animationend', () => circle.remove());
 
             button.appendChild( circle );
         }
@@ -80,7 +79,6 @@ export default {
 <style lang="scss">
 .ripple-button {
     width: 100%;
-    padding: rem(1);
     position: relative;
     display: block;
     border-radius: 4px;
@@ -103,10 +101,9 @@ export default {
         width: 10px;
         height: 10px;
         position: absolute;
-        top: 0;
-        left: 0;
         border-radius: 10px;
         transform: scale(0);
+        z-index: 1;
 
         animation: ripple 500ms ease-out;
     }
@@ -140,23 +137,14 @@ export default {
     border-radius: 6px;
     transition: background-color $defaultSpeed;
 
-    &:before {
-        content: "";
-        width: 10px;
-        height: 10px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) scale(0);
-        z-index: -1;
-        border-radius: 10px;
-        transition: transform $defaultSpeed;
+    &-stretch {
+        @extend .button;
+        width: 100%;
+        text-align: center;
     }
+}
 
-    &:hover:before {
-        transform: translate(-50%, -50%) scale(20);
-    }
-
+.button-icon {
     @include breakpointUp($md) {
         padding: rem(8) rem(14);
 
@@ -169,12 +157,6 @@ export default {
         @include breakpointDown($md) {
             display: none;
         }
-    }
-
-    &-stretch {
-        @extend .button;
-        width: 100%;
-        text-align: center;
     }
 }
 

@@ -37,7 +37,7 @@ export default {
 
     .bottom-bar-content {
         padding: rem(10) rem(20);
-        margin: rem(-32) auto 0 auto;
+        margin: rem(-28) auto 0 auto;
         max-width: rem(660);
         display: flex;
         justify-content: center;

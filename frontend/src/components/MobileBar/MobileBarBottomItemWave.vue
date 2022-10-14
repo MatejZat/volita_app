@@ -11,7 +11,7 @@
 .wave-wrapper {
     width: 200px;
     position: absolute;
-    top: -28px;
+    top: -29px;
     left: 50%;
     transform: translateX(-50%);
     z-index: -1;

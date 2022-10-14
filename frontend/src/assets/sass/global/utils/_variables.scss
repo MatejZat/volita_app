@@ -31,6 +31,6 @@ $font8: rem(8);
 
 // Animation speed
 $defaultSpeed: 150ms ease-in-out;
-$mobileBarSpeed: 300ms cubic-bezier(.7,0,.44,1);
+$mobileBarSpeed: 300ms ease;
 $pageTransitionSpeed: 200ms ease-in-out;
 $inputSpeed: 200ms ease;
