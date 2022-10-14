@@ -19,7 +19,7 @@
     >
         <AppIcon v-if="iconName" :icon-name="iconName"/>
 
-        <span>
+        <span class="button-text">
             <slot/>
         </span>
     </button>
@@ -34,7 +34,7 @@
     >
         <AppIcon v-if="iconName" :icon-name="iconName"/>
 
-        <span>
+        <span class="button-text">
             <slot/>
         </span>
     </RouterLink>
@@ -178,7 +178,7 @@ export default {
         }
     }
 
-    span {
+    .button-text {
         @include breakpointDown($md) {
             display: none;
         }
