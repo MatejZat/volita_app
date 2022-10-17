@@ -12,10 +12,10 @@
             </figure>
 
             <input
-                @input="emitValue($event)"
-                v-model="inputText"
+                @input="updateValue"
                 :type="type"
                 :placeholder="placeholder"
+                :value="modelValue"
                 :required="required"
                 class="font-nunito"
                 :class="[ inputTypeClass, inputHasIcon ]"
@@ -36,6 +36,7 @@ export default {
         label: String,
         type: String,
         placeholder: String,
+        modelValue: String,
         color: String,
         iconName: String,
         rows: Number,
@@ -56,17 +57,17 @@ export default {
 
     computed: {
         inputTypeClass() {
-            return `${ this.color }-input`;
+            return this.color ? `${ this.color }-input` : '';
         },
 
         inputHasIcon() {
             return this.iconName ? 'border-icon' : '';
-        }
+        },
     },
 
     methods: {
-        emitValue( event ) {
-            this.$emit( 'inputFill', event.target.value );
+        updateValue( event ) {
+            this.$emit( 'update:modelValue', event.target.value );
         },
 
         removeValue() {
@@ -74,6 +75,12 @@ export default {
                 this.inputText = '';
                 this.$emit( 'inputFill', '' );
             }
+        }
+    },
+
+    watch: {
+        value( newValue ) {
+            if ( newValue ) this.inputText = newValue;
         }
     },
 }
@@ -84,7 +91,7 @@ export default {
     width: 100%;
 
     label {
-        margin-left: rem(6);
+        margin-left: rem(4);
         margin-bottom: rem(4);
         display: block;
         font-size: $fontLittle;

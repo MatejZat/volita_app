@@ -1,10 +1,8 @@
 <template>
     <section>
-        <AppLogo />
-
         <AppForm @submit.prevent="fajne">
             <InputGroup :cols="2">
-                <AppInput type="text" placeholder="Meno"/>
+                <AppInput v-model="name" type="text" placeholder="Meno"/>
                 <AppInput type="text" placeholder="Daco"/>
             </InputGroup>
 
@@ -33,7 +31,6 @@
 import AppForm from "@/components/Form/AppForm";
 import AppInput from "@/components/Form/AppInput";
 import AppButton from "@/components/AppButton";
-import AppLogo from "@/components/AppLogo";
 import InputGroup from "@/components/Form/InputGroup";
 
 export default {
@@ -41,13 +38,18 @@ export default {
         AppForm,
         AppInput,
         AppButton,
-        AppLogo,
         InputGroup
+    },
+
+    data() {
+        return {
+            name: ''
+        }
     },
 
     methods: {
         fajne() {
-           console.log('fajne')
+           alert(this.name);
         }
     },
 }
